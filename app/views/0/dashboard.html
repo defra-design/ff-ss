@@ -1,0 +1,41 @@
+{% extends "layout-0-dashboard.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "A link"
+    },{
+      href: "#2",
+      text: "A link"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 4 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+{{ super() }}
+
+
+{% endblock %}

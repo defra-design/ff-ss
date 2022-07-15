@@ -1,0 +1,269 @@
+{% extends "layout.html" %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+<style>
+    .govuk-width-container {
+        max-width: 95% !important;
+    }
+
+</style>
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!--
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" class="govuk-breadcrumbs__link">{{ data['prototypes'][pid]['pages'][pageid]['title'] }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div id="dashboardmenu" class="govuk-grid-column-one-quarter">
+
+        <h2 class="govuk-heading-m">Menu</h2>
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="#account">Your account</a>
+            </li>
+
+            <li><a href="#business">Your business</a>
+            </li>
+
+            <li><a href="#agreements">Agreements &amp; applications</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                <p class="govuk-body-s">
+                    Last sign in: {% include "includes/today-time.html" %}
+                </p>
+                {% block h1 %}
+                <h1 class="govuk-heading-xl">
+                    {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+                </h1>
+                {% endblock %}
+                <form action="" method="POST">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="sort">
+                            Viewing:
+                        </label>
+                        <select class="govuk-select" id="sort" name="sort">
+                            <option value="published" selected>{{ data['businessname'] }}</option>
+                            <option value="updated">Old MacDonald's Farm</option>
+                            <option value="views">Cottage Farm</option>
+                            <option value="comments">-- Add a new business --</option>
+                        </select>
+                    </div>
+                </form>
+
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-padding-bottom-4">
+
+                <ul class="govuk-list">
+                    <li><b>{{ data['firstname'] }} {{ data['secondname'] }}</b></li>
+                    <li>{{ data['businessname'] }}</li>
+                    <li>{{ data['email'] }}</li>
+                    <li>{{ data['landline'] }}</li>
+                    <li>{{ data['mobile'] }}</li>
+                </ul>
+
+                <p class="govuk-body-s">
+                    <a href="#">Edit these details</a>
+                </p>
+
+            </div>
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <div class="govuk-grid-row govuk-!-padding-top-2">
+
+            <div class="govuk-grid-column-full">
+
+                <div class="col-container govuk-!-padding-bottom-8">
+
+                    {% if data['prototypes'][pid]['reminders'] == "on" %}
+
+                    <div class="govuk-inset-text inset-dashboard dashpanel">
+                        <h3 class="govuk-heading-m">Reminders:</h3>
+                        <ul class="govuk-list govuk-list--spaced">
+                            <li>17 July 2022 - Something</li>
+                            <li>31 Aug 2022 - Something</li>
+                        </ul>
+                        <br />
+                        <p class="govuk-body-s">
+                            <a href="#">Turn reminders off</a>
+                        </p>
+                    </div>
+
+
+
+                    {% else %}
+                    {% endif %}
+
+                    {% if data['prototypes'][pid]['messages'] == "on" %}
+
+                    <div class="govuk-inset-text inset-dashboard-2 dashpanel">
+                        <h3 class="govuk-heading-m">Messages:</h3>
+                        <ul class="govuk-list govuk-list--spaced">
+                            <li><a href="#">A message about Something</a></li>
+                            <li><a href="#">A message about Something else</a></li>
+                            <li><a href="#"><b>View all messages</b></a></li>
+                        </ul>
+                    </div>
+
+                    {% else %}
+                    {% endif %}
+
+
+                </div>
+
+                <div id="account" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Your account</h3>
+
+                    <div class="col-container">
+
+                        <div class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Manage account</h3>
+
+                            <ul class="govuk-list">
+                                <li><a href="#">Manage preferences</a> </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Manage permissions</h3>
+
+                            <p>This permission allows somoeome (including agents) to act for this business</p>
+
+                            <ul class="govuk-list">
+                                <li><a href="#">Manage permissions</a> </li>
+                            </ul>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div id="business" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Your business</h3>
+
+                    <div class="col-container">
+
+                        {% if data['prototypes'][pid]['land'] == "on" %}
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Your land</h3>
+
+                            <p>View maps of your land, edit your land parcels or transfer your land to another business.</p>
+
+                            <ul class="govuk-list govuk-list--spaced">
+                                <li><a href="#">View/edit your land</a> </li>
+                                <li><a href="#">View/edit any grazing rights you hold for common land</a> </li>
+                            </ul>
+
+                        </div>
+                        {% else %}
+                        {% endif %}
+
+                        {% if data['prototypes'][pid]['payments'] == "on" %}
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Your payments</h3>
+
+                            <p>View details of scheduled and previous payments made to your business.</p>
+
+                            <ul class="govuk-list">
+                                <li><a href="#">View your payments</a> </li>
+                            </ul>
+
+                        </div>
+                        {% else %}
+                        {% endif %}
+                    </div>
+
+                </div>
+
+                <div id="agreements" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Your agreements and applications</h3>
+
+                    <div class="col-container">
+
+
+
+                        <div class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Current schemes and agreements</h3>
+                            {% if data['prototypes'][pid]['sfi'] == "on" %}
+                            <p><a href="#">Sustainable Farming Incentive</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+                            {% if data['prototypes'][pid]['LNR'] == "on" %}
+                            <p><a href="#">LNR</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+                            {% if data['prototypes'][pid]['grants'] == "on" %}
+                            <p><a href="#">One-off payments &amp; grants</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+
+
+                        </div>
+
+
+
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Applications</h3>
+
+                            <p>An underway application</p>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock %}
+
+
+
+{% endblock %}

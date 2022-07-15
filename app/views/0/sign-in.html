@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "sign-in",
+      text: "Sign in"
+    },
+    {
+      href: "#2",
+      text: "Register"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 3 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" class="govuk-breadcrumbs__link">{{ data['prototypes'][pid]['pages'][pageid]['title'] }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="{{ data['prototypes'][pid]['pages'][pageid]['next'] }}" method="POST">
+
+            <div class="govuk-form-group govuk-!-padding-top-2">
+                <label class="govuk-label" for="CRYN">
+                    An identifier
+                </label>
+                <div id="account-number-hint" class="govuk-hint">
+                    A description
+                </div>
+                <input class="govuk-input govuk-input--width-10" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" pattern="[0-9]*" inputmode="numeric">
+
+                <br /><br />
+
+                <label for="password" class="gem-c-label govuk-label">Password</label>
+                <!-- <div id="password-hint" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+            It must be at least 8 characters long and must include at least one number.
+        </div> -->
+                <div class="gem-c-show-password__input-wrapper">
+                    <input name="user[password]" class="gem-c-input govuk-input gem-c-input--with-password govuk-!-width-two-thirds" id="password" type="password" autocomplete="new-password" aria-describedby="hint-password">
+                    <span class="govuk-visually-hidden" aria-live="polite">Your password is hidden</span>
+                </div> <!-- /. gem-c-show-password__input-wrapper -->
+                <div class="govuk-!-padding-bottom-2"></div>
+                <a href="#" class="govuk-link">I've forgotten my password</a>
+            </div> <!-- /. govuk-form-group -->
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+        {% if data['devmode'] == "on" %}
+        <div class="notes">
+            <p class="govuk-body-s">
+                Placeholder: this will align with DEFRA ID designs
+            </p>
+        </div>
+        {% else %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

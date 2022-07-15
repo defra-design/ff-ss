@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "sign-in",
+      text: "Sign in"
+    },
+    {
+      href: "#2",
+      text: "Register"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 2 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" class="govuk-breadcrumbs__link">{{ data['prototypes'][pid]['pages'][pageid]['title'] }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        {% block h1 %}
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+        {% endblock %}
+
+    </div>
+
+</div>
+{% endblock %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>Sign in to make a rural payments claim or update your details. You can register if you don’t already have an account.</p>
+
+        <p>You can use the service to:</p>
+
+        <!-- add feature toggle logic -->
+        <ul class="govuk-list govuk-list--bullet">
+            <li>apply for rural grants and payments</li>
+            <li>update your personal and business details</li>
+            <li>check and update digital maps of your registered land</li>
+            <li>give someone permission to act on your behalf</li>
+            <li><i>Others to follow</i></li>
+
+        </ul>
+
+        <br />
+
+
+        <form action="/0/start-form" method="POST">
+
+            <button class="govuk-button govuk-button--start" data-module="govuk-button">
+                Sign in<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                </svg>
+            </button>
+
+        </form>
+
+        <br /><br />
+
+        <h3 class="govuk-heading-m">Before you start</h3>
+
+        <p>There are different schemes in <a href="">Scotland</a>, <a href="">Northern Ireland</a> and <a href="">Wales</a>.</p>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
