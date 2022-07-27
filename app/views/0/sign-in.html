@@ -68,11 +68,11 @@
 
             <div class="govuk-form-group govuk-!-padding-top-2">
                 <label class="govuk-label" for="CRYN">
-                    An identifier
+                    Your Government Gateway ID
                 </label>
-                <div id="account-number-hint" class="govuk-hint">
+                <!--   <div id="account-number-hint" class="govuk-hint">
                     A description
-                </div>
+                </div> -->
                 <input class="govuk-input govuk-input--width-10" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" pattern="[0-9]*" inputmode="numeric">
 
                 <br /><br />
@@ -87,6 +87,10 @@
                 </div> <!-- /. gem-c-show-password__input-wrapper -->
                 <div class="govuk-!-padding-bottom-2"></div>
                 <a href="#" class="govuk-link">I've forgotten my password</a>
+
+                <input type="hidden" id="sms1b" name="agreed" value="show">
+                <input type="hidden" id="sms1b" name="eligible" value="show">
+
             </div> <!-- /. govuk-form-group -->
 
             <button class="govuk-button" data-module="govuk-button">Continue</button>
@@ -106,5 +110,7 @@
         {% endif %}
     </div>
 </div>
+
+{% include "includes/devmode.html" %}
 
 {% endblock %}

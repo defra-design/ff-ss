@@ -1,0 +1,27 @@
+<style>
+    .notes {
+        background: orange;
+        padding: 5px;
+    }
+
+</style>
+
+{% if data['devmode'] == "on" %}
+<div class="govuk-!-padding-top-8">
+    <form action="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" method="POST">
+        <input type="hidden" id="devmode" name="devmode" value="off">
+        <button style="border: none; background: white; color: orange;" class="govuk-link fade" data-module="govuk-button">
+            Prototype notes are {{ data['devmode'] }}
+        </button>
+    </form>
+</div>
+{% else %}
+<div class="govuk-!-padding-top-8">
+    <form action="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" method="POST">
+        <input type="hidden" id="devmode" name="devmode" value="on">
+        <button style="border: none; background: white; color: gray;" class="govuk-link fade" data-module="govuk-button">
+            Prototype notes are {{ data['devmode'] }}
+        </button>
+    </form>
+</div>
+{% endif %}

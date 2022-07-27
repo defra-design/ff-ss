@@ -1,0 +1,493 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "A link"
+    },{
+      href: "#2",
+      text: "A link"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 5 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to dashboard</a>
+        </li>
+
+    </ol>
+</div>
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+    s .govuk-width-container {
+        max-width: 95% !important;
+    }
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-one-half">
+
+        <div class="govuk-inset-text">
+            <h3 class="govuk-heading-m">Next payment:</h3>
+            <p>Your quarterly SFI payment for April to June 2022 is <b>£279.65</b></p>
+
+            <p>We will pay this into your account on <b>{% include "includes/nextWeek.html" %}</b>.</p>
+        </div>
+
+        <br />
+
+        <br />
+
+        <br />
+
+    </div>
+
+    <div class="govuk-grid-column-one-half govuk-!-padding-top-6">
+
+        <div class="dashpanel panelbg">
+
+            <h3 class="govuk-heading-m">Manage payments</h3>
+
+            <ul class="govuk-list govuk-list--spaced">
+                <li><a href="#">Change payment details</a> </li>
+                <li><a href="#">Request monthly payments</a> </li>
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Sort and filter payments
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <form id="paymentstable" action="/1/payments-toggle-form" method="POST">
+                    <div class="govuk-grid-column-one-quarter">
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="sort">
+                                Sort by
+                            </label>
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="scheme">Payment scheme</option>
+                                <option value="date" selected>Payment date</option>
+                                <option value="status">Payment status</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p> Show:</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input togz" id="paid-tog" name="paid" type="checkbox" value="show" {{ checked("paid", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                        Paid
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="pending-tog" name="pending" type="checkbox" value="show" {{ checked("pending", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        Pending
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="scheduled-tog" name="scheduled" type="checkbox" value="show" {{ checked("scheduled", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        Scheduled
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                        Update table
+                    </button>
+
+                </form>
+            </div>
+        </details>
+
+        <!-- <form id="paymentstable" action="/1/payments-toggle-form" method="POST">
+            <div class="govuk-grid-column-one-quarter">
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="sort">
+                        Sort by
+                    </label>
+                    <select class="govuk-select" id="sort" name="sort">
+                        <option value="scheme">Payment scheme</option>
+                        <option value="date" selected>Payment date</option>
+                        <option value="status">Payment status</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p> Show:</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input togz" id="paid-tog" name="paid" type="checkbox" value="show" {{ checked("paid", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                Paid
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p>&nbsp;</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input" id="pending-tog" name="pending" type="checkbox" value="show" {{ checked("pending", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                Pending
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                <div class="govuk-form-group">
+                    <p>&nbsp;</p>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                        <div class="govuk-checkboxes__item">
+
+                            <input class="govuk-checkboxes__input" id="scheduled-tog" name="scheduled" type="checkbox" value="show" {{ checked("scheduled", "show") }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                Scheduled
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                Update table
+            </button>
+
+        </form>  -->
+
+    </div>
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <table class="govuk-table govuk-!-padding-top-8">
+
+            <thead class="govuk-table__head">
+
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Payment reference number</th>
+                    <th scope="col" class="govuk-table__header">Payment date</th>
+                    <th scope="col" class="govuk-table__header">Scheme</th>
+                    <th scope="col" class="govuk-table__header">Amount</th>
+
+                    <th scope="col" class="govuk-table__header">Details</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                {% if data['paid'] == "show" %}
+                <tr class="govuk-table__row paid toggleDiv">
+                    <td class="govuk-table__cell">13493</td>
+                    <td class="govuk-table__cell">28 May 2021</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme 2021</td>
+                    <td class="govuk-table__cell">£1,475.00 <br /> </td>
+                    <td class="govuk-table__cell">
+                        No payment statement available
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Paid
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+
+                {% else %}
+                {% endif %}
+
+                {% if data['paid'] == "show" %}
+
+                <tr class="govuk-table__row paidrow">
+                    <td class="govuk-table__cell">17893</td>
+                    <td class="govuk-table__cell">30 May 2022</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme 2022</td>
+                    <td class="govuk-table__cell">£1,376.00 <br /> </td>
+                    <td class="govuk-table__cell">
+                        <a href="../../../public/images/BPS%20claim%20statement.pdf" target="_blank">View payment statement (PDF)</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Paid
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+                {% else %}
+                {% endif %}
+                {% if data['pending'] == "show" and data['phase'] == "1" %}
+                <tr class="govuk-table__row pending">
+                    <td class="govuk-table__cell">31773</td>
+                    <td class="govuk-table__cell">{% include "includes/nextWeek.html" %}</td>
+                    <td class="govuk-table__cell"><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard Year 1: 1 of 4</a></td>
+                    <td class="govuk-table__cell">£279.65 <br /> </td>
+                    <td class="govuk-table__cell">
+                        <a href="payment-statement-31773.html" target="_blank">View payment statement (PDF)</a>
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
+                            Pending
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c {% include "includes/next90days.html" %}</td>
+                    <td class="govuk-table__cell"><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard Year 1: 2 of 4</a></td>
+                    <td class="govuk-table__cell">-
+                    </td>
+                    <td class="govuk-table__cell">
+                        Calculation expected w/c {% include "includes/next80days.html" %}
+                    </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c {% include "includes/next180days.html" %}</td>
+                    <td class="govuk-table__cell"><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard Year 1: 3 of 4</a></td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+                {% if data['scheduled'] == "show" %}
+                <tr class="govuk-table__row scheduled">
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">w/c {% include "includes/next270days.html" %}</td>
+                    <td class="govuk-table__cell"><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard Year 1: 4 of 4</a></td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Scheduled
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
+
+            </tbody>
+        </table>
+
+        <br />
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Export this list as a PDF
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,307 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "A link"
+    },{
+      href: "#2",
+      text: "A link"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 14 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to dashboard</a>
+        </li>
+
+    </ol>
+</div>
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+    s .govuk-width-container {
+        max-width: 95% !important;
+    }
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Sort and filter actions
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <form id="paymentstable" action="/1/payments-toggle-form" method="POST">
+                    <div class="govuk-grid-column-one-quarter">
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="sort">
+                                Sort by
+                            </label>
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="scheme" selected>Scheme</option>
+                                <option value="date">Due date</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p> Show:</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input togz" id="paid-tog" name="paid" type="checkbox" value="show" {{ checked("notstarted", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                        Not started
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="pending-tog" name="pending" type="checkbox" value="show" {{ checked("inprogress", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        In progress
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="govuk-grid-column-one-quarter">
+                        <div class="govuk-form-group">
+                            <p>&nbsp;</p>
+                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                <div class="govuk-checkboxes__item">
+
+                                    <input class="govuk-checkboxes__input" id="scheduled-tog" name="scheduled" type="checkbox" value="show" {{ checked("completed", "show") }}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                        Completed
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                        Update table
+                    </button>
+
+                </form>
+            </div>
+        </details>
+
+    </div>
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <table class="govuk-table govuk-!-padding-top-8">
+
+            <thead class="govuk-table__head">
+
+                <tr class="govuk-table__row">
+
+                    <th scope="col" class="govuk-table__header">Due date</th>
+                    <th scope="col" class="govuk-table__header">Action</th>
+                    <th scope="col" class="govuk-table__header">Scheme</th>
+
+
+                    <th scope="col" class="govuk-table__header">Details</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row paid toggleDiv">
+                    <td class="govuk-table__cell">03 Apr 2022 </td>
+                    <td class="govuk-table__cell">Complete a soil assessment and produce a soil management plan</td>
+                    <td class="govuk-table__cell">SFI - improved grassland soils standard</td>
+                    <td class="govuk-table__cell"><a href="action">View your soild management plan</a> <br /> </td>
+
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+                            Completed
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+                <tr class="govuk-table__row paid toggleDiv">
+                    <td class="govuk-table__cell">{% include "includes/nextFortnight.html" %} </td>
+                    <td class="govuk-table__cell">You have 12 land parcels that need a new SOM test</td>
+                    <td class="govuk-table__cell">SFI - improved grassland soils standard</td>
+                    <td class="govuk-table__cell"><a href="action">View action details</a> <br /> </td>
+
+                    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+                            Not started
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <br />
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Export this list as a PDF
+        </button>
+
+    </div>
+
+</div>
+
+{% endblock %}

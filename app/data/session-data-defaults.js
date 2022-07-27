@@ -20,8 +20,8 @@ Example usage:
 module.exports = {
 
     indexlink: "/index",
-    devmode: "on",
-    updated: "15-Jul-22",
+    devmode: "off",
+    updated: "26-Jul-22",
     maintitle: "Future Farming Single Service",
     team: [
         {
@@ -30,7 +30,7 @@ module.exports = {
             email: "jon@hippoddigital.co.uk"
            },
         {
-            role: "Service design",
+            role: "Service design / Product lead",
             name: "Lindsey Williams",
             email: "Lindsey.Williams@defra.gov.uk"
            },
@@ -46,8 +46,8 @@ module.exports = {
            },
         {
             role: "Policy",
-            name: "TBC",
-            email: "#"
+            name: "Cindy Hughes",
+            email: "cindy.hughes@defra.gov.uk"
            },
         {
             role: "Business analysis",
@@ -56,8 +56,28 @@ module.exports = {
            },
         {
             role: "Content design",
-            name: "TBC",
-            email: "#"
+            name: "Eleanor Shakeshaft",
+            email: "eleanor.shakeshaft@defra.gov.uk"
+           },
+        {
+            role: "Service design",
+            name: "Becky Miller",
+            email: "becky.miller@defra.gov.uk"
+           },
+        {
+            role: "Co-design coach",
+            name: "Marion Lean",
+            email: "marion.lean@defra.gov.uk"
+           },
+        {
+            role: "#",
+            name: "Neville Cavendish",
+            email: "neville.cavendish@defra.gov.uk"
+           },
+        {
+            role: "#",
+            name: "Hannah Freeman",
+            email: "hannah.freeman@defra.gov.uk"
            }
            ],
     stakeholders: [
@@ -74,6 +94,10 @@ module.exports = {
         {
             url: "https://app.mural.co/invitation/mural/futurefarmingsd3138/1651507868839?sender=uc30139899e37d01cac4a1915&key=4673bce1-d7b0-40d6-9212-69beb20b37f7",
             title: "Single Service - Mural"
+        },
+        {
+            url: "https://app.mural.co/t/futurefarmingsd3138/m/futurefarmingsd3138/1658150753050/8a246584d40de0147fb4fd4cb1a462b01467398e?sender=uc30139899e37d01cac4a1915",
+            title: "Single Service - Design spike Mural"
         }
     ],
     prototypes: [
@@ -82,7 +106,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "TBC",
-            updated: "12-Jul-22",
+            updated: "26-Jul-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -98,6 +122,10 @@ module.exports = {
             vets: "on",
             grants: "on",
             LNR: "on",
+            scheme: "SFI arable and horticultural soils standard",
+            agreed: "show",
+            eligible: "show",
+            ineligible: "",
             pages: [
                 {
                     title: "GOV.UK homepage",
@@ -120,7 +148,7 @@ module.exports = {
                 },
                 {
                     title: "Future Farming Single Service",
-                    template: "",
+                    template: "account",
                     content: "Sign in",
                     url: "start",
                     pageid: 2,
@@ -130,21 +158,161 @@ module.exports = {
                 },
                 {
                     title: "Sign in",
-                    template: "",
+                    template: "account",
                     content: "Sign in",
                     url: "sign-in",
                     pageid: 3,
                     back: "start",
-                    next: "dashboard",
+                    next: "spinner-sign-in",
                     complete: "no"
                 },
                 {
                     title: "Dashboard",
-                    template: "dashboard",
+                    template: "account",
                     content: "dashboard",
                     url: "dashboard",
                     pageid: 4,
                     back: "",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Payments",
+                    template: "payments",
+                    content: "payments",
+                    url: "payments",
+                    pageid: 5,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Permissions",
+                    template: "account",
+                    content: "permissions",
+                    url: "permissions",
+                    pageid: 6,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Personal details",
+                    template: "account",
+                    content: "details",
+                    url: "details",
+                    pageid: 7,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Documents",
+                    template: "Documents",
+                    content: "documents",
+                    url: "documents",
+                    pageid: 8,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI - improved grassland soils standard",
+                    template: "payments",
+                    content: "payment statement",
+                    url: "payment-statement-31773",
+                    pageid: 9,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI - improved grassland soils standard agreement",
+                    template: "schemes",
+                    content: "agreement",
+                    url: "agreemeent-sfi-grassland",
+                    pageid: 10,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "All schemes",
+                    template: "schemes",
+                    content: "payment statement",
+                    url: "schemes",
+                    pageid: 11,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Apply for SFI",
+                    template: "application",
+                    content: "payment statement",
+                    url: "apply-for-sfi",
+                    pageid: 12,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Manage your land",
+                    template: "land",
+                    content: "payment statement",
+                    url: "land",
+                    pageid: 13,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Actions",
+                    template: "actions",
+                    content: "actions",
+                    url: "action",
+                    pageid: 14,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Reminders",
+                    template: "account",
+                    content: "reminders",
+                    url: "reminders",
+                    pageid: 15,
+                    back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action",
+                    template: "actions",
+                    content: "action",
+                    url: "action",
+                    pageid: 16,
+                    back: "actions",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Add your SOM test results",
+                    template: "actions",
+                    content: "action",
+                    url: "add-som-test",
+                    pageid: 17,
+                    back: "actions",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Upload a document",
+                    template: "documents",
+                    content: "documents",
+                    url: "upload-document",
+                    pageid: 18,
+                    back: "documents",
                     next: "",
                     complete: "no"
                 }

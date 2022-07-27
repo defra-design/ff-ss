@@ -68,21 +68,6 @@ GOV.UK Prototype Kit
         visuallyHiddenTitle: "Footer links"
       }
     }) }}
-{% if data['devmode'] == "on" %}
-<form action="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" method="POST">
-    <input type="hidden" id="devmode" name="devmode" value="off">
-    <button style="border: none; background: white;" class="govuk-link fade" data-module="govuk-button">
-        Prototype notes are {{ data['devmode'] }}
-    </button>
-</form>
-{% else %}
-<form action="{{ data['prototypes'][pid]['pages'][pageid]['url'] }}" method="POST">
-    <input type="hidden" id="devmode" name="devmode" value="on">
-    <button style="border: none; background: white;" class="govuk-link fade" data-module="govuk-button">
-        Prototype notes are {{ data['devmode'] }}
-    </button>
-</form>
-{% endif %}
 {% endblock %}
 {% endif %}
 

@@ -63,7 +63,8 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <p>Sign in to make a rural payments claim or update your details. You can register if you don’t already have an account.</p>
+        <p>Sign in to the {{ data['maintitle'] }} to make an application or update your details.</p>
+
 
         <p>You can use the service to:</p>
 
@@ -90,6 +91,10 @@
 
         </form>
 
+        <br />
+
+        <p>You can <a href="#">register for a DEFRA ID</a> if you don’t already have one.</p>
+
         <br /><br />
 
         <h3 class="govuk-heading-m">Before you start</h3>
@@ -100,5 +105,6 @@
 
 </div>
 
+{% include "includes/devmode.html" %}
 
 {% endblock %}

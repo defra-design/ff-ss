@@ -9,8 +9,8 @@
   serviceUrl: "#",
   navigation: [
     {
-      href: "#1",
-      text: "A link"
+      href: "#account",
+      text: "Manage your account"
     },{
       href: "#2",
       text: "A link"
@@ -37,5 +37,6 @@
 {% block content %}
 {{ super() }}
 
+{% include "includes/devmode.html" %}
 
 {% endblock %}

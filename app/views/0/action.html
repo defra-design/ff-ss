@@ -1,0 +1,528 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "A link"
+    },{
+      href: "#2",
+      text: "A link"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 16 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+<style>
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+</style>
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="dashboard" class="govuk-breadcrumbs__link">Dashboard</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">All actions</a>
+        </li>
+
+    </ol>
+</div>
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+    s .govuk-width-container {
+        max-width: 95% !important;
+    }
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-4">
+
+        <h2 class="govuk-heading-l">You have 12 land parcels that need a new SOM test</h2>
+
+        <span class="govuk-caption-l">Due date: <b>{% include "includes/nextFortnight.html" %}</b> </span>
+
+        <br />
+        <span class="govuk-caption-l">Scheme: <b>SFI - improved grassland soils standard</b> </span>
+
+        <br />
+
+        <strong class="govuk-tag govuk-tag--grey">
+            Not started
+        </strong>
+
+    </div>
+
+
+    <div class="govuk-grid-column-full govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+        <hr>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                            Land requiring a new SOM test
+
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Land parcel</th>
+                                <th scope="col" class="govuk-table__header">Last tested</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131083</b> <br />
+                                        Grassland. <br />{{ data['parcel1'] }} (ha) total size.<br /> {{ data['parcel1'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131084</b> <br />
+                                        Grassland. <br />{{ data['parcel2'] }} (ha) total size.<br /> {{ data['parcel2'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131085</b> <br />
+                                        10.00 (ha) total size.<br /> 0.00 ha of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131086</b> <br />
+                                        Grassland.<br />{{ data['parcel3'] }} (ha) total size.<br /> {{ data['parcel3'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131083</b> <br />
+                                        Grassland. <br />{{ data['parcel1'] }} (ha) total size.<br /> {{ data['parcel1'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131084</b> <br />
+                                        Grassland. <br />{{ data['parcel2'] }} (ha) total size.<br /> {{ data['parcel2'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131085</b> <br />
+                                        10.00 (ha) total size.<br /> 0.00 ha of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131086</b> <br />
+                                        Grassland.<br />{{ data['parcel3'] }} (ha) total size.<br /> {{ data['parcel3'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131083</b> <br />
+                                        Grassland. <br />{{ data['parcel1'] }} (ha) total size.<br /> {{ data['parcel1'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131084</b> <br />
+                                        Grassland. <br />{{ data['parcel2'] }} (ha) total size.<br /> {{ data['parcel2'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131085</b> <br />
+                                        10.00 (ha) total size.<br /> 0.00 ha of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+                                    <td class="govuk-table__cell">
+                                        <b>SP41131086</b> <br />
+                                        Grassland.<br />{{ data['parcel3'] }} (ha) total size.<br /> {{ data['parcel3'] }} (ha) of SFI available area
+                                    </td>
+                                    <td class="govuk-table__cell">{% include "includes/last3Years.html" %}</td>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                            How to test soil organic matter
+
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                    <p>Testing soil organic matter will help you assess the health of your soil. To do this, you can:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>take soil samples</li>
+                        <li>analyse the soil samples, which will usually be done by a commercial laboratory</li>
+                    </ul>
+
+                    <h3 class="govuk-heading-m govuk-!-padding-top-8" id="how-to-select-a-sample-area">How to select a sample area</h3>
+
+                    <p>Before you take soil samples, you’ll need to select your sample areas. A sample area is an area of land where you’ll take soil samples.</p>
+
+                    <p>When you select sample areas, try to choose areas which have:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>a similar soil type</li>
+                        <li>been managed in a similar way in the past</li>
+                    </ul>
+
+                    <p>If the soil type and past management is similar, you can take account of the size of the land parcels:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>select one sample area in each land parcel if you consider the land parcels to be an average size</li>
+                        <li>select a number of smaller sample areas within a large land parcel</li>
+                        <li>combine small land parcels into a single sample area, but try to avoid the combined area being too large as this will reduce the soil testing analysis accuracy</li>
+                    </ul>
+
+                    <p>The improved grassland soils standard requires that during your 3-year <abbr title="sustainable farming incentive">SFI</abbr> standards agreement, each land parcel has been tested for soil organic matter within the last 5 years. Make sure you meet this requirement of the standard if you combine a number of small land parcels into a single sample area. For example, the overall combined area could include samples from each land parcel.</p>
+
+                    <h3 class="govuk-heading-m govuk-!-padding-top-8" id="when-to-take-soil-samples">When to take soil samples</h3>
+
+                    <p>You may find it easier to take soil samples in the spring or autumn, before you cultivate the land. This will also avoid damaging the crop.</p>
+
+                    <p>It is advisable to avoid taking soil samples if:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>the soil is waterlogged or very dry, because it may reduce the quality of the soil analysis</li>
+                        <li>manure or slurry has been applied within around the last 3 months, as it may affect the soil organic matter levels and give you a false result</li>
+                    </ul>
+
+                    <h3 class="govuk-heading-m govuk-!-padding-top-8" id="how-to-take-soil-samples">How to take soil samples</h3>
+
+                    <p>You can take multiple soil samples on each sample area and combine them into a single sample that represents the soil across each sample area.</p>
+
+                    <p>You can choose how many soil samples you take in each sample area, but try to take enough to gain a good understanding of the soil organic matter across each sample area.</p>
+
+                    <p>Avoid taking soil samples on areas of land where:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>there are historical or archaeological features, as identified on your <abbr title="Sustainable Farming Incentive Historic Environment Farm Environment Record">SFI HEFER</abbr>
+                        </li>
+                        <li>features like manure heaps, pylons, gateways, headlands and around trees, as these features can distort the soil analysis results</li>
+                    </ul>
+
+                    <p>To get a representative sample of the sample area you’re testing, aim to take cores up to a depth of around 15cm (6 inches).</p>
+
+                    <p>The information on <a href="https://www.gov.uk/guidance/check-regulatory-issues-and-consents-that-could-affect-an-sfi-standards-agreement#scheduled-monuments-historic-and-archaeological-features" class="govuk-link">checking regulatory issues and consents</a> explains that you must <a href="https://www.gov.uk/government/publications/consent-for-soil-sampling-on-scheduled-monuments-sustainable-farming-incentive" class="govuk-link">get consent from Historic England</a> if you plan to take soil samples on an area containing a scheduled monument. The consent form tells you what depth the soil samples can be.</p>
+
+                    <p>You can follow these steps to take soil samples for soil organic matter:</p>
+
+                    <ol class="govuk-list govuk-list--number">
+
+                        <li>
+                            <p>Walk a ‘W’ pattern across the sample area, with 5-7 stops along each leg of the ‘W’.</p>
+                        </li>
+                        <li>
+                            <p>This will give you around 25 soil samples across the sample area.</p>
+                        </li>
+                        <li>
+                            <p>Combine the soil samples in a clean plastic bag, to form one bulk sample of about 0.5kg.</p>
+                        </li>
+                    </ol>
+
+                    <p>If you want to assess the soil structure and soil biology (for action 1), at 5 to 10 stops across the whole ‘W’ you can:</p>
+
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>assess topsoil structure</li>
+                        <li>count and record earthworms</li>
+                    </ul>
+
+                    <p>You can also assess the subsoil structure at 3 of the stops, one of which should be on a headland.</p>
+
+                    <p>You may find it helpful to read the <abbr title="Agriculture and Horticulture Development Board">AHDB</abbr> guidance about <a rel="external" href="https://ahdb.org.uk/knowledge-library/how-to-collect-a-soil-sample" class="govuk-link">how to collect a soil sample</a>.</p>
+
+                    <p>The image below shows how you can walk a ‘W’ and take soil samples across a sample area.</p>
+
+                    <figure class="image embedded">
+                        <div class="img"><img src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/151495/soil_sampling.svg" alt="Illustration showing how to take soil samples in a 'W' shape across a field."></div>
+                    </figure>
+
+                    <h3 class="govuk-heading-m govuk-!-padding-top-8" id="how-to-test-the-soil-samples">How to test the soil samples</h3>
+
+                    <p>If you have the right equipment and expertise, you can test the soil samples yourself. However, sending your soil samples to a commercial laboratory will usually give more accurate results. You can find a list of <a rel="external" href="https://ahdb.org.uk/knowledge-library/soil-and-forage-testing-companies" class="govuk-link">laboratories where you can send your soil samples</a> on the <abbr title="Agriculture and Horticulture Development Board">AHDB</abbr> website.</p>
+
+                    <p>Try to use the same laboratory and method of testing if you are repeating the tests over a number of years.&nbsp; Having a consistent approach will help you see how the soil organic matter is increasing or decreasing over time.</p>
+
+                    <p>If you use a laboratory, you can ask them to test organic matter content by using the:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>loss on ignition test (as a minimum level of analysis)</li>
+                        <li>Dumas test, which uses dry combustion to burn the samples</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="govuk-accordion__section ">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                            How to upload your test results
+                        </span>
+                    </h2>
+                </div>
+                <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                    <p>Content here</p>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <a href="add-som-test.html"><button class="govuk-button " data-module="govuk-button">
+                Upload your SOM test results
+            </button>
+        </a>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-padding-top-4 panelbg">
+
+        <h3 class="govuk-heading-m">Did you know?</h3>
+
+        <p>You can combine small land parcels into a single sample area.</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

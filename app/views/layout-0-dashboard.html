@@ -7,6 +7,48 @@
         max-width: 95% !important;
     }
 
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
 </style>
 <!-- BREADCRUMBS -->
 <div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
@@ -32,14 +74,36 @@
 
         <h2 class="govuk-heading-m">Menu</h2>
 
-        <ul class="govuk-list govuk-list--spaced">
-            <li><a href="#account">Your account</a>
+        <ul class="govuk-list govuk-list--spaced govuk-!-padding-bottom-8">
+
+
+            <li><a href="#business">Business</a>
+                <ul class="govuk-list">
+                    <li>&nbsp;- <a href="#land">Land</a>
+                    </li>
+                    <li>&nbsp;- <a href="#payments">Payments</a>
+                    </li>
+                    <li>&nbsp;- <a href="#agreements">Agreements</a>
+                    </li>
+                    <li>&nbsp;- <a href="#applications">Applications</a>
+                    </li>
+
+                </ul>
             </li>
 
-            <li><a href="#business">Your business</a>
+            <!--    <li><a href="#agreements">Agreements &amp; applications</a>
+            </li> -->
+
+            <li><a href="#documents">Documents</a>
+                <ul class="govuk-list">
+                    <li>&nbsp;- <a href="#files">Saved files</a>
+                    </li>
+                    <li>&nbsp;- <a href="#bookmarks">Bookmarks</a>
+                    </li>
+                </ul>
             </li>
 
-            <li><a href="#agreements">Agreements &amp; applications</a>
+            <li><a href="#account">Account</a>
             </li>
 
         </ul>
@@ -86,46 +150,39 @@
                 </ul>
 
                 <p class="govuk-body-s">
-                    <a href="#">Edit these details</a>
+                    <a href="details">Edit these details</a>
                 </p>
 
             </div>
         </div>
 
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
 
-        <div class="govuk-grid-row govuk-!-padding-top-2">
+        <div class="govuk-grid-row govuk-!-padding-top-8">
 
             <div class="govuk-grid-column-full">
 
                 <div class="col-container govuk-!-padding-bottom-8">
-
-                    {% if data['prototypes'][pid]['reminders'] == "on" %}
-
-                    <div class="govuk-inset-text inset-dashboard dashpanel">
-                        <h3 class="govuk-heading-m">Reminders:</h3>
-                        <ul class="govuk-list govuk-list--spaced">
-                            <li>17 July 2022 - Something</li>
-                            <li>31 Aug 2022 - Something</li>
-                        </ul>
-                        <br />
-                        <p class="govuk-body-s">
-                            <a href="#">Turn reminders off</a>
-                        </p>
-                    </div>
-
-
-
-                    {% else %}
-                    {% endif %}
 
                     {% if data['prototypes'][pid]['messages'] == "on" %}
 
                     <div class="govuk-inset-text inset-dashboard-2 dashpanel">
                         <h3 class="govuk-heading-m">Messages:</h3>
                         <ul class="govuk-list govuk-list--spaced">
-                            <li><a href="#">A message about Something</a></li>
-                            <li><a href="#">A message about Something else</a></li>
+
+                            <li>
+                                <span class="govuk-body-s"> {% include "includes/lastMonth.html" %}<br /></span>
+                                <a href="land">Land update accepted</a></li>
+                            <li> <span class="govuk-body-s">
+                                    {% include "includes/last2Weeks.html" %} <br />
+                                </span><a href="#">Vet Visit report has been completed by [Vet name]</a></li>
+                            <!--    <li> <span class="govuk-body-s">
+                                    {% include "includes/lastWeek.html" %} -
+                                </span><a href="#">Local nature reserves: setting up and management guidance has been updated</a></li> -->
+                            <li> <span class="govuk-body-s">
+                                    {% include "includes/today.html" %} <br />
+                                </span><a href="apply-for-sfi">You are eligible for the {{ data['prototypes'][pid]['scheme'] }}</a></li>
+                            <li>&nbsp;</li>
                             <li><a href="#"><b>View all messages</b></a></li>
                         </ul>
                     </div>
@@ -133,58 +190,70 @@
                     {% else %}
                     {% endif %}
 
+                    {% if data['prototypes'][pid]['reminders'] == "on" %}
 
-                </div>
+                    <div class="govuk-inset-text inset-dashboard dashpanel">
+                        <h3 class="govuk-heading-m">Reminders:</h3>
+                        <ul class="govuk-list govuk-list--spaced">
+                            <li>
+                                <span class="govuk-body-s">
+                                    {% include "includes/nextWeek.html" %} </span> <br />
+                                <span class="govuk-caption-m">Payment</span><a href="payment-statement-31773.html" target="_blank">SFI - improved grassland soils standard: Q1 payment to be made</a>
+                            </li>
+                            <li><span class="govuk-body-s">
+                                    {% include "includes/nextFortnight.html" %} </span> <br />
+                                <span class="govuk-caption-m">Action</span> <a href="action">You have 12 land parcels that need a new SOM test</a>
+                            </li>
+                            <!--   <li><span class="govuk-body-s">
+                                    {% include "includes/next40days.html" %} </span> <br />
+                                <span class="govuk-caption-m">Action</span> <a href="#">You have 6 land parcels that need a new SOM test</a>
+                            </li> -->
+                            <li>&nbsp;</li>
+                            <li><a href="actions"><b>View all actions</b></a></li>
+                        </ul>
 
-                <div id="account" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+                        <!--      <p class="govuk-body-s govuk-!-padding-top-8">
+                            Export to: <a href="#"><img src="../../public/images/ical.png" style="max-height: 16px;">&nbsp;&nbsp;iCal</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#"><img src="../../public/images/outlook-calendar-logo.png" style="max-height: 16px;">&nbsp;&nbsp;Outlook</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#"><img src="../../public/images/gcal.png" style="max-height: 16px;">&nbsp;&nbsp;Google</a>
+                        </p> -->
 
-                    <h3 class="govuk-heading-l">Your account</h3>
-
-                    <div class="col-container">
-
-                        <div class="dashpanel panelbg">
-                            <h3 class="govuk-heading-m">Manage account</h3>
-
-                            <ul class="govuk-list">
-                                <li><a href="#">Manage preferences</a> </li>
-
-                            </ul>
-                        </div>
-
-                        <div class="dashpanel panelbg">
-
-                            <h3 class="govuk-heading-m">Manage permissions</h3>
-
-                            <p>This permission allows somoeome (including agents) to act for this business</p>
-
-                            <ul class="govuk-list">
-                                <li><a href="#">Manage permissions</a> </li>
-                            </ul>
-
-                        </div>
-
-
-
+                        <!--  <div class="">
+                            <form action="/0/dashboard-reminders" method="POST">
+                                <input type="hidden" id="reminders" name="reminders" value="off">
+                                <button style="border: none; background: white;" class="govuk-link" data-module="govuk-button">
+                                    Turn reminders off
+                                </button>
+                            </form>
+                        </div> -->
                     </div>
+
+                    {% else %}
+                    {% endif %}
 
                 </div>
 
                 <div id="business" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
 
-                    <h3 class="govuk-heading-l">Your business</h3>
+                    <h3 class="govuk-heading-l">Business</h3>
 
                     <div class="col-container">
 
                         {% if data['prototypes'][pid]['land'] == "on" %}
-                        <div class="dashpanel panelbg">
+                        <div id="land" class="dashpanel panelbg">
 
-                            <h3 class="govuk-heading-m">Your land</h3>
+                            <h3 class="govuk-heading-m">Land</h3>
 
                             <p>View maps of your land, edit your land parcels or transfer your land to another business.</p>
 
+                            <div class="govuk-inset-text">
+
+                                <p>Land was last updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
+                            </div>
+
                             <ul class="govuk-list govuk-list--spaced">
-                                <li><a href="#">View/edit your land</a> </li>
-                                <li><a href="#">View/edit any grazing rights you hold for common land</a> </li>
+                                <li><a href="land">View/edit your land</a> </li>
+                                <li><a href="#">View/edit your soil management plan</a> </li>
+                                <!--     <li><a href="#">View/edit any grazing rights you hold for common land</a> </li> -->
+                                <li><a href="add-som-test">Add a new SOM test result</a> </li>
                             </ul>
 
                         </div>
@@ -192,40 +261,121 @@
                         {% endif %}
 
                         {% if data['prototypes'][pid]['payments'] == "on" %}
-                        <div class="dashpanel panelbg">
+                        <div id="payments" class="dashpanel panelbg">
 
-                            <h3 class="govuk-heading-m">Your payments</h3>
+                            <h3 class="govuk-heading-m">Payments</h3>
 
                             <p>View details of scheduled and previous payments made to your business.</p>
 
-                            <ul class="govuk-list">
-                                <li><a href="#">View your payments</a> </li>
-                            </ul>
+                            <div class="govuk-inset-text">
+                                <h3 class="govuk-heading-s">Next payment:</h3>
+                                <p>Your quarterly SFI grassland payment is <b>£279.65</b>. We will pay this into your account on <b>{% include "includes/nextWeek.html" %}</b>.</p>
+                            </div>
+
+                            <form id="paymentlink" action="payments" method="POST">
+
+                                <div class="govuk-form-group">
+
+                                    <input type="hidden" id="land-status" name="paid" value="show">
+                                    <input type="hidden" id="completed" name="pending" value="show">
+                                    <input type="hidden" id="completed" name="scheduled" value="show">
+                                    <input type="hidden" id="phase" name="phase" value="1">
+
+                                </div>
+
+
+                                <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('paymentlink').submit(); return false;">View payments</a>
+                            </form>
 
                         </div>
                         {% else %}
                         {% endif %}
+
+
                     </div>
-
-                </div>
-
-                <div id="agreements" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-                    <h3 class="govuk-heading-l">Your agreements and applications</h3>
 
                     <div class="col-container">
 
+                        <div id="agreements" class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Agreements</h3>
+                            <P class="govuk-!-padding-bottom-4">View your current and historic agreements you have in place.</P>
 
 
-                        <div class="dashpanel panelbg">
-                            <h3 class="govuk-heading-m">Current schemes and agreements</h3>
                             {% if data['prototypes'][pid]['sfi'] == "on" %}
-                            <p><a href="#">Sustainable Farming Incentive</a>
+                            <p><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
                             </p>
                             {% else %}
                             {% endif %}
                             {% if data['prototypes'][pid]['LNR'] == "on" %}
-                            <p><a href="#">LNR</a>
+                            <p><a href="#">Local nature reserve</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+                            {% if data['prototypes'][pid]['grants'] == "on" %}
+                            <p><a href="#">One-off payments &amp; grants</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+
+                            <br />
+
+                            <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;"><b>View all agreements</b></a>
+                            </p>
+
+
+                        </div>
+
+                        <div id="applications" class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Applications</h3>
+
+                            <p class="govuk-!-padding-bottom-4">Your current and previous applications.</p>
+
+                            <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
+                                    Not started
+                                </strong>
+                            </p>
+                            <p><a href="#">SFI improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                                    Completed
+                                </strong>
+                            </p>
+                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                                    Completed
+                                </strong>
+                            </p>
+                            {% if data['prototypes'][pid]['advice'] == "on" %}
+                            <br />
+                            <form id="schemelink" action="/0/schemes-link" method="POST">
+
+                                <input type="hidden" id="sms1b" name="agreed" value="show">
+                                <input type="hidden" id="sms1b" name="eligible" value="show">
+                                <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;"><b>View all schemes this farm is eligible for</b></a>
+                                </p>
+                            </form>
+
+                            {% else %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--  <div id="agreements" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Agreements and applications</h3>
+
+                    <div class="col-container">
+
+                        <div class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Agreements</h3>
+                            {% if data['prototypes'][pid]['sfi'] == "on" %}
+                            <p><a href="#">SFI - improved grassland soils standard</a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+                            {% if data['prototypes'][pid]['LNR'] == "on" %}
+                            <p><a href="#">Local nature reserve</a>
                             </p>
                             {% else %}
                             {% endif %}
@@ -238,13 +388,127 @@
 
                         </div>
 
-
-
                         <div class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Applications</h3>
 
-                            <p>An underway application</p>
+
+                            <p><a href="#">SFI - arable and horticultural soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
+                                    Started
+                                </strong>
+                            </p>
+                            <p><a href="#">SFI - improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                                    Completed
+                                </strong>
+                            </p>
+                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                                    Completed
+                                </strong>
+                            </p>
+                            {% if data['prototypes'][pid]['advice'] == "on" %}
+                            <br />
+                            <p><a href="#"><b>View all schemes this farm is eligible for</b></a>
+                            </p>
+                            {% else %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </div> -->
+
+                <div id="documents" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Documents</h3>
+
+                    <div class="col-container">
+
+                        <div id="files" class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Saved files</h3>
+
+                            <p>Here you can save your own documents, such as SOM test results, photographs, land agreements, and certificates.</p>
+
+                            <!--     <p>Neither DEFRA or the RPA will be able to view these documents unless you grant permission.</p> -->
+
+                            <p>All correspondence sent to you will be saved here automatically.</p>
+
+                            <div class="govuk-inset-text">
+                                <a href="#">Vet Visit report by [Vet name] </a> &nbsp;&nbsp;
+                                <strong class="govuk-tag govuk-tag--blue">
+                                    Added {% include "includes/last2Weeks.html" %}
+                                </strong>
+                            </div>
+
+
+                            <br />
+
+                            <div class="govuk-grid-row">
+
+                                <div class="govuk-grid-column-full">
+
+                                    <a href="upload-document"> <button class="govuk-button" data-module="govuk-button">
+                                            Upload a document
+                                        </button>
+                                    </a>
+
+
+
+                                    <p><a href="documents"><b>View all saved documents</b></a></p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div id="bookmarks" class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Bookmarks</h3>
+
+                            <p>Here you can see all the content from GOV.UK that you have saved.</p>
+                            <p>You will get notified if any of this content has been updated.</p>
+
+
+                            <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
+                                <li><a href="https://www.gov.uk/guidance/create-and-manage-local-nature-reserves" target="_blank">Local nature reserves: setting up and management</a>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
+                                        Updated {% include "includes/lastWeek.html" %}
+                                    </strong></li>
+
+                                <li><a href="https://www.gov.uk/guidance/the-sfi-improved-grassland-soils-standard" target="_blank">The SFI improved grassland soils standard</a> </li>
+                                <li><a href="#">Another article</a> </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="account" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">DEFRA ID account</h3>
+
+                    <div class="col-container">
+
+                        <div class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Manage details &amp; preferences</h3>
+
+                            <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
+                                <li><a href="details">View/edit your personal details</a> </li>
+                                <li><a href="#">Manage notification preferences</a> </li>
+                                <li><a href="#">Change DEFRA ID password</a> </li>
+                            </ul>
+                        </div>
+
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Manage permissions</h3>
+
+                            <p>This permission allows someone (including agents) to act for this business</p>
+
+                            <ul class="govuk-list">
+                                <li><a href="permissions">View/manage permissions</a> </li>
+                            </ul>
 
                         </div>
 

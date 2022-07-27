@@ -7,7 +7,11 @@
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
-    today = hours + ':' + mins + ':' + seconds + ' on ' + dd + '-' + mm + '-' + yyyy;
+    var mnth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var mmm = mnth[today.getMonth()];
+
+    today = hours + ':' + mins + ':' + seconds + ' on ' + dd + ' ' + mmm + ' ' + yyyy;
     document.write(today);
 
 </script>

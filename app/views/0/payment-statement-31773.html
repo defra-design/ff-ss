@@ -1,0 +1,315 @@
+{% extends "layout_unbranded.html" %}
+
+<!-- Update prototype id -->
+{% set pid = 1 %}
+{% set ppid = pid + 1 %}
+{% set 0pid = ("0" + (pid + 1)).slice(-2) %}
+{% set pageid = 54 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS 
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+<!--  <li class="govuk-breadcrumbs__list-item">
+    <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
+</li>
+
+</ol>
+</div> -->
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        grey-color: grey;
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            SFI - improved grassland soils standard
+        </h1>
+        <span class="govuk-caption-xl">
+            Payment statement
+        </span>
+    </div>
+
+    <!-- <div class="govuk-grid-column-full">
+
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+            <li><a href="#details">Details</a> </li>
+            <li><a href="#summary">Payment summary</a> </li>
+            <li><a href="#calculations">Calculations</a> </li>
+            <li><a href="#land">Land details</a> </li>
+        </ol>
+
+    </div>
+    <div class="govuk-grid-column-full">
+        <br /> <br />
+        <hr>
+
+    </div> -->
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 ">
+
+    <!--  <div class="govuk-grid-column-full">
+
+        <h2 id="details" class="govuk-heading-m">
+            1: Details
+        </h2>
+
+    </div> -->
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <table class="govuk-table">
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header noborder">Business name:</td>
+                    <td class="govuk-table__cell noborder">{{ data['businessname'] }}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header noborder">Single Business Identifier (SBI):</td>
+                    <td class="govuk-table__cell noborder">{{ data['SBI'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-8">
+
+        <p>This statement explains your payments for the Sustainable Farming Incentive (SFI). It is made up of 3 parts.</p>
+
+        <p>Part 1 provides a summary of the most recent payment.<br />
+            Part 2 explains how we calculated the payment.
+            <br />
+            Part 3 highlights where to go for more support.
+        </p>
+
+    </div>
+
+</div>
+
+<hr>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="summary" class="govuk-heading-l">
+            Part 1: Payment summary
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full grey">
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                <p><b>Your quarterly SFI payment for April to June 2022 is £279.65</b></p>
+
+                <p>We will pay this into your account on <b>{% include "includes/nextWeek.html" %}</b></p>
+
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+                <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell noborder">Calculation date:</td>
+                            <td class="govuk-table__cell noborder">{% include "includes/lastMonth.html" %}</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell noborder">Payment reference number:</td>
+                            <td class="govuk-table__cell noborder">31773</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--  <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class"></th>
+                <th scope="col" class="govuk-table__header app-custom-class"></th>
+                <th scope="col" class="govuk-table__header app-custom-class">Reductions</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Total</th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">SFI arable standard</td>
+                <td class="govuk-table__cell">£XXX</td>
+                <td class="govuk-table__cell">£X</td>
+                <td class="govuk-table__cell">£XX</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">SFI grasslands standard</td>
+                <td class="govuk-table__cell">£XXX</td>
+                <td class="govuk-table__cell">£X</td>
+                <td class="govuk-table__cell">£XX</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><b>Total SFI payment</b></td>
+                <td class="govuk-table__cell"><b>£XXX</b></td>
+                <td class="govuk-table__cell"><b>£X</b>
+                </td>
+                <td class="govuk-table__cell"><b>£XX</b></td>
+            </tr>
+        </tbody>
+    </table> -->
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="calculations" class="govuk-heading-l">
+            Part 2: Calculation
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <p>We calculated the total SFI payment amount by adding together payments for all the standards which are part of your agreement, as shown in this table.
+        </p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header app-custom-class">Standard</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Level</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Land area (ha)</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Annual value</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly value</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly reduction</th>
+                    <th scope="col" class="govuk-table__header app-custom-class">Quarterly payment</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Arable and horticultural soil standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">5.00</td>
+                    <td class="govuk-table__cell">£110.00</td>
+                    <td class="govuk-table__cell">£27.50</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£27.50</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Arable and horticultural soil standard</td>
+                    <td class="govuk-table__cell">Intermediate</td>
+                    <td class="govuk-table__cell">10.00</td>
+                    <td class="govuk-table__cell">£400.00</td>
+                    <td class="govuk-table__cell">£100.00</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£100.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Improved grasslands soil standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">15.00</td>
+                    <td class="govuk-table__cell">£420.00</td>
+                    <td class="govuk-table__cell">£105.00</td>
+                    <td class="govuk-table__cell">£50.00 (1)</td>
+                    <td class="govuk-table__cell">£92.50</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Moorland standard</td>
+                    <td class="govuk-table__cell">Introductory</td>
+                    <td class="govuk-table__cell">12.00</td>
+                    <td class="govuk-table__cell">£388.60</td>
+                    <td class="govuk-table__cell">£97.15</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                    <td class="govuk-table__cell">£97.15</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header">Total</td>
+                    <td class="govuk-table__header"></td>
+                    <td class="govuk-table__header">37.00</td>
+                    <td class="govuk-table__header">£1318.50</td>
+                    <td class="govuk-table__header">£329.65</td>
+                    <td class="govuk-table__header">£50.00</td>
+                    <td class="govuk-table__header">£279.65</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Reductions can be made for:</p>
+
+        <ul class="govuk-list">
+            <li>(1) Land area has changed</li>
+            <li>(2) Ineligible parcel due to rotation of Countryside Stewardship options</li>
+            <li>(3) Change in ambition level</li>
+        </ul>
+
+    </div>
+
+
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+    <div class="govuk-grid-column-full">
+
+        <h2 id="land" class="govuk-heading-l">
+            Part 3: More support
+        </h2>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <p>If you think your payment is wrong, you should:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>check your land parcel information in the Rural Payments service at <a href="#" class="govuk-link">www.gov.uk/claim-rural-payments</a> </li>
+            <li>review the SFI scheme information at <a href="#" class="govuk-link">www.gov.uk/sfi</a> </li>
+        </ul>
+
+        <p>If you still do not agree with the amount you have been paid, contact us within 3 months of the payment date at ruralpayments@defra.gov.uk.</p>
+        <p>Find other ways to get in touch at <a href="#" class="govuk-link">www.gov.uk/guidance/contacting-the-rpa-about-sfi</a> </p>
+
+        <h2 class="govuk-heading-l govuk-!-padding-top-8">To receive this statement in large print or an alternative format, <a href="#" class="govuk-link">contact the Rural Payments Agency</a>.</h2>
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}
