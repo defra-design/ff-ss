@@ -21,7 +21,7 @@ module.exports = {
 
     indexlink: "/index",
     devmode: "off",
-    updated: "26-Jul-22",
+    updated: "27-Jul-22",
     maintitle: "Future Farming Single Service",
     team: [
         {
@@ -80,12 +80,6 @@ module.exports = {
             email: "hannah.freeman@defra.gov.uk"
            }
            ],
-    stakeholders: [
-        {
-            name: "Peter Smith",
-            role: "Head of Design for FFCP"
-           }
-           ],
     links: [
         {
             url: "https://app.mural.co/t/futurefarmingsd3138/m/futurefarmingsd3138/1651067545638/4331124ca9039c365a815be244bf62310d39fe65?invited=true&sender=uc30139899e37d01cac4a1915",
@@ -106,7 +100,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "TBC",
-            updated: "26-Jul-22",
+            updated: "27-Jul-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
