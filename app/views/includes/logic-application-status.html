@@ -1,0 +1,18 @@
+{% if data['applicationstatus'] == "started" %}
+
+<strong class="govuk-tag app-task-list__tag">
+    In progress
+</strong>
+
+{% elif data['applicationstatus'] == "done" %}
+
+<strong class="govuk-tag govuk-tag--green app-task-list__tag">
+    Completed
+</strong>
+
+{% else %}
+<strong class="govuk-tag govuk-tag--grey app-task-list__tag">
+    Not started
+</strong>
+
+{% endif %}

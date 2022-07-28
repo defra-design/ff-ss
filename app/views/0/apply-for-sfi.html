@@ -76,6 +76,8 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+
+
         <p><i>Here's a paragraph that summaries why we believe this farm is eligible for this scheme.</i></p>
 
         <ol class="app-task-list govuk-!-padding-top-8">
@@ -86,11 +88,13 @@
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="#" aria-describedby="eligibility-status">
-                                Confirm eligibility
-                            </a>
+                            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('confirmeligibility').submit(); return false;"> Confirm eligibility</a>
+                            <form id="confirmeligibility" action="apply-for-sfi-eligibility" method="POST">
+                                <input type="hidden" id="land-status" name="stage-eligibility" value="started">
+                                <input type="hidden" id="land-status" name="applicationstatus" value="started">
+                            </form>
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                        {% include "includes/logic-stage-1-status.html" %}
                     </li>
 
                 </ul>
@@ -103,19 +107,23 @@
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="#" aria-describedby="company-information-status">
-                                Read guidance summary
-                            </a>
+                            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('guidancesummary').submit(); return false;"> Read guidance summary</a>
+                            <form id="guidancesummary" action="apply-for-sfi-guidance" method="POST">
+                                <input type="hidden" id="land-status" name="stage-guidance" value="started">
+                                <input type="hidden" id="land-status" name="applicationstatus" value="started">
+                            </form>
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                        {% include "includes/logic-stage-2-status.html" %}
                     </li>
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="#" aria-describedby="contact-details-status">
-                                Calculate payment estimate
-                            </a>
+                            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('calculator').submit(); return false;"> Calculate payment estimate</a>
+                            <form id="calculator" action="apply-for-sfi-calculator" method="POST">
+                                <input type="hidden" id="land-status" name="stage-calculate" value="started">
+                                <input type="hidden" id="land-status" name="applicationstatus" value="started">
+                            </form>
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                        {% include "includes/logic-stage-2b-status.html" %}
                     </li>
 
                 </ul>
@@ -128,20 +136,39 @@
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                            <a href="#" aria-describedby="company-information-status">
-                                Select levels
-                            </a>
+                            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('selectlevel').submit(); return false;">Select level</a>
+                            <form id="selectlevel" action="apply-for-sfi-levels" method="POST">
+                                <input type="hidden" id="land-status" name="stage-level" value="started">
+                                <input type="hidden" id="land-status" name="applicationstatus" value="started">
+                            </form>
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
-
+                        {% include "includes/logic-stage-3-status.html" %}
+                    </li>
                     <li class="app-task-list__item">
+                        {% if data['stage-level'] == "done" %}
+                        <span class="app-task-list__task-name">
+                            <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('selectland').submit(); return false;"> Select land</a>
+                            <form id="selectland" action="apply-for-sfi-land" method="POST">
+                                <input type="hidden" id="land-status" name="stage-land" value="started">
+                                <input type="hidden" id="land-status" name="applicationstatus" value="started">
+                            </form>
+                        </span>
+                        {% include "includes/logic-stage-3b-status.html" %}
+
+                        {% else %}
+
                         <span class="app-task-list__task-name">
                             Select land
                         </span>
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+                        {% include "includes/logic-stage-3b-status.html" %}
+
+                        {% endif %}
+
+
+
                     </li>
-            </li>
-            </ul>
+
+                </ul>
             </li>
             <li>
                 <h2 class="app-task-list__section">

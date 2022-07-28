@@ -21,7 +21,7 @@ module.exports = {
 
     indexlink: "/index",
     devmode: "off",
-    updated: "27-Jul-22",
+    updated: "28-Jul-22",
     maintitle: "Future Farming Single Service",
     team: [
         {
@@ -100,7 +100,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "TBC",
-            updated: "27-Jul-22",
+            updated: "28-Jul-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -243,7 +243,7 @@ module.exports = {
                 {
                     title: "Apply for SFI",
                     template: "application",
-                    content: "payment statement",
+                    content: "application",
                     url: "apply-for-sfi",
                     pageid: 12,
                     back: "dashboard",
@@ -307,6 +307,76 @@ module.exports = {
                     url: "upload-document",
                     pageid: 18,
                     back: "documents",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action",
+                    template: "actions",
+                    content: "action",
+                    url: "action-2",
+                    pageid: 19,
+                    back: "actions",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action",
+                    template: "actions",
+                    content: "action",
+                    url: "action-3",
+                    pageid: 20,
+                    back: "actions",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Confirm your eligibility",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-eligibility",
+                    pageid: 21,
+                    back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI improved grassland standard - guidance",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-guidance",
+                    pageid: 22,
+                    back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI improved grassland standard - calculator",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-calculator",
+                    pageid: 23,
+                    back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI improved grassland standard - choose ambition level",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-levels",
+                    pageid: 24,
+                    back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SFI improved grassland standard - select your land parcels",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-land",
+                    pageid: 25,
+                    back: "apply-for-sfi",
                     next: "",
                     complete: "no"
                 }

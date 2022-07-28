@@ -331,15 +331,13 @@
 
                             <p class="govuk-!-padding-bottom-4">Your current and previous applications.</p>
 
-                            <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
-                                    Not started
-                                </strong>
+                            <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
                             </p>
-                            <p><a href="#">SFI improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                            <p><a href="#">SFI improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green app-task-list__tag">
                                     Completed
                                 </strong>
                             </p>
-                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green app-task-list__tag">
                                     Completed
                                 </strong>
                             </p>
@@ -435,7 +433,7 @@
 
                             <div class="govuk-inset-text">
                                 <a href="#">Vet Visit report by [Vet name] </a> &nbsp;&nbsp;
-                                <strong class="govuk-tag govuk-tag--blue">
+                                <strong class="govuk-tag govuk-tag--blue app-task-list__tag">
                                     Added {% include "includes/last2Weeks.html" %}
                                 </strong>
                             </div>
@@ -470,7 +468,7 @@
 
 
                             <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
-                                <li><a href="https://www.gov.uk/guidance/create-and-manage-local-nature-reserves" target="_blank">Local nature reserves: setting up and management</a>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
+                                <li><a href="https://www.gov.uk/guidance/create-and-manage-local-nature-reserves" target="_blank">Local nature reserves: setting up and management</a>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue app-task-list__tag">
                                         Updated {% include "includes/lastWeek.html" %}
                                     </strong></li>
 

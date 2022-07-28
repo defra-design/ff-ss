@@ -1,0 +1,18 @@
+{% if data['stage-eligibility'] == "started" %}
+
+<strong class="govuk-tag app-task-list__tag">
+    Started
+</strong>
+
+{% elif data['stage-eligibility'] == "done" %}
+
+<strong class="govuk-tag govuk-tag--green app-task-list__tag">
+    Completed
+</strong>
+
+{% else %}
+<strong class="govuk-tag govuk-tag--grey app-task-list__tag">
+    Not started
+</strong>
+
+{% endif %}
