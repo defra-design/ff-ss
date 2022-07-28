@@ -306,7 +306,20 @@
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
                 </tr>
+                {% if data['applicationstatus'] == "started" %}
+                <tr class="govuk-table__row paid toggleDiv">
+                    <td class="govuk-table__cell">- </td>
+                    <td class="govuk-table__cell">Complete application</td>
+                    <td class="govuk-table__cell">{{ data['prototypes'][pid]['scheme'] }}</td>
+                    <td class="govuk-table__cell"><a href="apply-for-sfi">Resume application</a> <br /> </td>
 
+                    <td class="govuk-table__cell"><strong class="govuk-tag">
+                            In progress
+                        </strong></td>
+                    <td class="govuk-table__cell">&nbsp;</td>
+                </tr>
+                {% else %}
+                {% endif %}
 
             </tbody>
         </table>
