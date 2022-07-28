@@ -338,7 +338,7 @@
                             <p class="">View all future farming schemes.</p>
 
                             {% if data['applicationstatus'] == "started" %}
-                            <div class="govuk-inset-text">
+                            <div id="applications" class="govuk-inset-text">
                                 <h3 class="govuk-heading-s">Current application(s):</h3>
                                 <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
                                 </p>
