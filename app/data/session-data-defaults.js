@@ -379,6 +379,16 @@ module.exports = {
                     back: "apply-for-sfi",
                     next: "",
                     complete: "no"
+                },
+                {
+                    title: "Check your answers",
+                    template: "application",
+                    content: "application",
+                    url: "apply-check-your-answers",
+                    pageid: 26,
+                    back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
                 }
             ]
 }
