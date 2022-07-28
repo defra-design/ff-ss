@@ -295,8 +295,14 @@
                     <td class="govuk-table__cell">{{ data['prototypes'][pid]['scheme'] }}</td>
                     <td class="govuk-table__cell">Improved soil health</td>
                     <td class="govuk-table__cell">Eligible</td>
-                    <td class="govuk-table__cell"><a href="apply-for-sfi" class="govuk-button">Apply</a> </td>
+                    <td class="govuk-table__cell">
+                        {% if data['applicationstatus'] == "started" %}
 
+                        <a href="apply-for-sfi" class="govuk-button">Resume application</a>
+                        {% else %}
+                        <a href="apply-for-sfi" class="govuk-button">Apply</a>
+                        {% endif %}
+                    </td>
                 </tr>
 
                 {% else %}

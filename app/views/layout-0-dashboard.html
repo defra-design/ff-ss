@@ -85,7 +85,7 @@
                     </li>
                     <li>&nbsp;- <a href="#agreements">Agreements</a>
                     </li>
-                    <li>&nbsp;- <a href="#applications">Applications</a>
+                    <li>&nbsp;- <a href="#schemes">Schemes</a>
                     </li>
 
                 </ul>
@@ -172,7 +172,7 @@
 
                             <li>
                                 <span class="govuk-body-s"> {% include "includes/lastMonth.html" %}<br /></span>
-                                <a href="land">Land update accepted - Eleanor's test</a></li>
+                                <a href="land">Land update accepted</a></li>
                             <li> <span class="govuk-body-s">
                                     {% include "includes/last2Weeks.html" %} <br />
                                 </span><a href="#">Vet Visit report has been completed by [Vet name]</a></li>
@@ -182,6 +182,11 @@
                             <li> <span class="govuk-body-s">
                                     {% include "includes/today.html" %} <br />
                                 </span><a href="apply-for-sfi">You are eligible for the {{ data['prototypes'][pid]['scheme'] }}</a></li>
+                            <li>
+                                <span class="govuk-body-s">
+                                    {% include "includes/nextWeek.html" %} </span> <br />
+                                <a href="payment-statement-31773.html" target="_blank">SFI - improved grassland soils standard: Q1 payment to be made</a>
+                            </li>
                             <li>&nbsp;</li>
                             <li><a href="#"><b>View all messages</b></a></li>
                         </ul>
@@ -195,19 +200,20 @@
                     <div class="govuk-inset-text inset-dashboard dashpanel">
                         <h3 class="govuk-heading-m">Reminders:</h3>
                         <ul class="govuk-list govuk-list--spaced">
-                            <li>
-                                <span class="govuk-body-s">
-                                    {% include "includes/nextWeek.html" %} </span> <br />
-                                <span class="govuk-caption-m">Payment</span><a href="payment-statement-31773.html" target="_blank">SFI - improved grassland soils standard: Q1 payment to be made</a>
-                            </li>
+
                             <li><span class="govuk-body-s">
                                     {% include "includes/nextFortnight.html" %} </span> <br />
                                 <span class="govuk-caption-m">Action</span> <a href="action">You have 12 land parcels that need a new SOM test</a>
                             </li>
-                            <!--   <li><span class="govuk-body-s">
+                            {% if data['applicationstatus'] == "started" %}
+                            <li><span class="govuk-body-s">
                                     {% include "includes/next40days.html" %} </span> <br />
-                                <span class="govuk-caption-m">Action</span> <a href="#">You have 6 land parcels that need a new SOM test</a>
-                            </li> -->
+                                <span class="govuk-caption-m">Application</span> <a href="apply-for-sfi">Complete and submit your {{ data['prototypes'][pid]['scheme'] }} application</a>
+                            </li>
+
+                            {% else %}
+                            {% endif %}
+
                             <li>&nbsp;</li>
                             <li><a href="actions"><b>View all actions</b></a></li>
                         </ul>
@@ -298,7 +304,7 @@
 
                         <div id="agreements" class="dashpanel panelbg">
                             <h3 class="govuk-heading-m">Agreements</h3>
-                            <P class="govuk-!-padding-bottom-4">View your current and historic agreements you have in place.</P>
+                            <P class="govuk-!-padding-bottom-4">View your current and historic agreements.</P>
 
 
                             {% if data['prototypes'][pid]['sfi'] == "on" %}
@@ -325,29 +331,37 @@
 
                         </div>
 
-                        <div id="applications" class="dashpanel panelbg">
+                        <div id="schemes" class="dashpanel panelbg">
 
-                            <h3 class="govuk-heading-m">Applications</h3>
+                            <h3 class="govuk-heading-m">Schemes</h3>
 
-                            <p class="govuk-!-padding-bottom-4">Your current and previous applications.</p>
+                            <p class="">View all future farming schemes.</p>
 
-                            <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
-                            </p>
-                            <p><a href="#">SFI improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green app-task-list__tag">
-                                    Completed
-                                </strong>
-                            </p>
-                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green app-task-list__tag">
-                                    Completed
-                                </strong>
-                            </p>
+                            {% if data['applicationstatus'] == "started" %}
+                            <div class="govuk-inset-text">
+                                <h3 class="govuk-heading-s">Current application(s):</h3>
+                                <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
+                                </p>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
                             {% if data['prototypes'][pid]['advice'] == "on" %}
-                            <br />
+
                             <form id="schemelink" action="/0/schemes-link" method="POST">
 
                                 <input type="hidden" id="sms1b" name="agreed" value="show">
                                 <input type="hidden" id="sms1b" name="eligible" value="show">
-                                <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;"><b>View all schemes this farm is eligible for</b></a>
+                                <input type="hidden" id="sms1b" name="ineligible" value="hide">
+                                <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;">View all schemes this farm is eligible for</a>
+                                </p>
+                            </form>
+                            <form id="schemelink2" action="/0/schemes-link" method="POST">
+                                <br />
+                                <input type="hidden" id="sms1b" name="agreed" value="show">
+                                <input type="hidden" id="sms1b" name="eligible" value="show">
+                                <input type="hidden" id="sms1b" name="ineligible" value="show">
+                                <p><a href="" onclick="document.getElementById('schemelink2').submit(); return false;"><b>View all schemes</b></a>
                                 </p>
                             </form>
 
@@ -359,61 +373,6 @@
 
                 </div>
 
-                <!--  <div id="agreements" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-                    <h3 class="govuk-heading-l">Agreements and applications</h3>
-
-                    <div class="col-container">
-
-                        <div class="dashpanel panelbg">
-                            <h3 class="govuk-heading-m">Agreements</h3>
-                            {% if data['prototypes'][pid]['sfi'] == "on" %}
-                            <p><a href="#">SFI - improved grassland soils standard</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-                            {% if data['prototypes'][pid]['LNR'] == "on" %}
-                            <p><a href="#">Local nature reserve</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-                            {% if data['prototypes'][pid]['grants'] == "on" %}
-                            <p><a href="#">One-off payments &amp; grants</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-
-
-                        </div>
-
-                        <div class="dashpanel panelbg">
-
-                            <h3 class="govuk-heading-m">Applications</h3>
-
-
-                            <p><a href="#">SFI - arable and horticultural soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue">
-                                    Started
-                                </strong>
-                            </p>
-                            <p><a href="#">SFI - improved grassland soils standard</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
-                                    Completed
-                                </strong>
-                            </p>
-                            <p><a href="#">Local nature reserve</a> &nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
-                                    Completed
-                                </strong>
-                            </p>
-                            {% if data['prototypes'][pid]['advice'] == "on" %}
-                            <br />
-                            <p><a href="#"><b>View all schemes this farm is eligible for</b></a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-                        </div>
-
-                    </div>
-
-                </div> -->
 
                 <div id="documents" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
 
@@ -449,8 +408,6 @@
                                             Upload a document
                                         </button>
                                     </a>
-
-
 
                                     <p><a href="documents"><b>View all saved documents</b></a></p>
 
