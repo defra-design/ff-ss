@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Future Farming",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#1",
+      text: "A link"
+    },{
+      href: "#2",
+      text: "A link"
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+<!-- Update prototype id -->
+{% set pid = 0 %}
+{% set pageid = 27 %}
+
+<!-- Before content area -->
+{% block beforeContent %}
+{{ super() }}
+<!-- BREADCRUMBS -->
+<div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
+    <ol class="govuk-breadcrumbs__list">
+        <!-- <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
+        </li> -->
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to dashboard</a>
+        </li>
+
+    </ol>
+</div>
+
+<style>
+    .noborder {
+        border-bottom: 0px #fff solid !important;
+    }
+
+    .grey {
+        background-color: lightgray;
+        padding: 20px 20px 0px 20px;
+    }
+
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+    s .govuk-width-container {
+        max-width: 95% !important;
+    }
+
+    .col-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .dashpanel {
+        flex: 1;
+        padding: 15px;
+    }
+
+    #dashboardmenu {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        top: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .col-container {
+            display: block;
+            width: 100%;
+        }
+
+        #dashboardmenu {
+            display: none;
+        }
+    }
+
+    .panelbg {
+        background: #f3f2f1;
+        border-right: 15px solid white;
+        border-bottom: 15px solid white;
+    }
+
+    .inset-dashboard {
+        border-left-color: #d53880;
+    }
+
+    .inset-dashboard-2 {
+        border-left-color: #28a197;
+    }
+
+</style>
+{% endblock %}
+
+
+<!-- Main content area -->
+{% block content %}
+
+{% block title %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">
+            {{ data['prototypes'][pid]['pages'][pageid]['title'] }}
+        </h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+<div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+    <div class="govuk-grid-column-full govuk-!-padding-top-6">
+
+        <ul class="govuk-list govuk-list--spaced">
+            <li><a href="#">Change payment details</a> </li>
+            <li><a href="#">Request monthly payments</a> </li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

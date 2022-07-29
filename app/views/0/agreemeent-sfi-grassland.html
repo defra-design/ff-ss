@@ -1,4 +1,4 @@
-{% extends "layout_unbranded.html" %}
+{% extends "layout.html" %}
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
@@ -7,31 +7,22 @@
 <!-- Before content area -->
 {% block beforeContent %}
 {{ super() }}
-<!-- BREADCRUMBS 
+<!-- BREADCRUMBS -->
 <div class="govuk-breadcrumbs govuk-breadcrumbs--collapse-on-mobile">
     <ol class="govuk-breadcrumbs__list">
-        <!-- <li class="govuk-breadcrumbs__list-item">
-            <a href="{{ data['prototypes'][pid]['home'] }}" class="govuk-breadcrumbs__link">Home</a>
-        </li> -->
-<!--  <li class="govuk-breadcrumbs__list-item">
-    <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Back to payments overview</a>
-</li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="dashboard" class="govuk-breadcrumbs__link">Dashboard</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">Schemes</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            SFI - improved grassland soils standard
+        </li>
 
-</ol>
-</div> -->
+    </ol>
+</div>
 
-<style>
-    .noborder {
-        border-bottom: 0px #fff solid !important;
-    }
-
-    .grey {
-        grey-color: grey;
-        background-color: lightgray;
-        padding: 20px 20px 0px 20px;
-    }
-
-</style>
 {% endblock %}
 
 
@@ -39,51 +30,95 @@
 {% block content %}
 
 {% block title %}
-<div class="govuk-grid-row govuk-!-padding-bottom-8">
+<div class="govuk-grid-row govuk-!-padding-bottom-4">
 
     <div class="govuk-grid-column-full">
-
-        <h1 class="govuk-heading-xl">
-            SFI - improved grassland soils standard
-        </h1>
         <span class="govuk-caption-xl">
             Agreement
         </span>
+        <h1 class="govuk-heading-xl">
+            SFI - improved grassland soils standard
+        </h1>
+        <p><a href="#">View the agreement document (PDF)</a> </p>
     </div>
 
-    <!-- <div class="govuk-grid-column-full">
-
-        <ol class="govuk-list govuk-list--number govuk-list--spaced">
-            <li><a href="#details">Details</a> </li>
-            <li><a href="#summary">Payment summary</a> </li>
-            <li><a href="#calculations">Calculations</a> </li>
-            <li><a href="#land">Land details</a> </li>
-        </ol>
-
-    </div>
-    <div class="govuk-grid-column-full">
-        <br /> <br />
-        <hr>
-
-    </div> -->
 </div>
 {% endblock %}
-
-
-<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-8">
-
+<hr>
+<div class="govuk-grid-row govuk-!-padding-bottom-8 govuk-!-padding-top-4">
 
     <div class="govuk-grid-column-full">
 
-        <p><i>This page will include:</i></p>
+        <h2 class="govuk-heading-m">Agreement dates</h2>
 
-        <ul class="govuk-list govuk-list--bullet">
-            <li>Link to agreement doc</li>
-            <li>List of actions for this agreement</li>
-            <li>Link to payment schedule for this agreement</li>
-            <li>Curated guidance links based on what stage of the agreement the customer is in</li>
+        <p>03 Apr 2022 to 02 Apr 2025</p>
 
-        </ul>
+        <h2 class="govuk-heading-m govuk-!-padding-top-8">Payment schedule</h2>
+
+        <p>4 x quarterly payments per year</p>
+
+        <p><a href="payments.html">View payments</a> </p>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-8">Scheme actions</h2>
+
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="#">Complete a soil assessment and produce a soil management plan</a> &nbsp;&nbsp;<span class="govuk-body-s">
+                    03 Apr 2022</span>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
+                    Completed
+                </strong></li>
+            <li><a href="action.html">Test soil organic matter</a>&nbsp;&nbsp;<span class="govuk-body-s">
+                    {% include "includes/nextFortnight.html" %}</span>&nbsp;&nbsp;</li>
+            <li><a href="action-2.html">Minimise bare ground over winter</a> &nbsp;&nbsp;<span class="govuk-body-s">
+                    01 Dec 2022</span>&nbsp;&nbsp;</li>
+            <li><a href="action-3.html">Establish and maintain herbal leys</a> &nbsp;&nbsp;<span class="govuk-body-s">
+                    01 Apr 2023</span>&nbsp;&nbsp;</li>
+        </ol>
+
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-8">Read scheme guidance</h2>
+
+        <ol class="govuk-list govuk-list--number">
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 1" data-track-label="#how-the-improved-grassland-soils-standard-will-improve-the-environment" data-track-options="{&quot;dimension29&quot;:&quot;How the improved grassland soils standard will improve the environment&quot;}" href="#how-the-improved-grassland-soils-standard-will-improve-the-environment">How the improved grassland soils standard will improve the environment</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="#eligible-land-for-the-improved-grassland-soils-standard" data-track-options="{&quot;dimension29&quot;:&quot;Eligible land for the improved grassland soils standard&quot;}" href="#eligible-land-for-the-improved-grassland-soils-standard">Eligible land for the improved grassland soils standard</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 3" data-track-label="#other-land-eligibility-issues-to-consider" data-track-options="{&quot;dimension29&quot;:&quot;Other land eligibility issues to consider&quot;}" href="#other-land-eligibility-issues-to-consider">Other land eligibility issues to consider</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 4" data-track-label="#how-the-improved-grassland-soils-standard-works" data-track-options="{&quot;dimension29&quot;:&quot;How the improved grassland soils standard works&quot;}" href="#how-the-improved-grassland-soils-standard-works">How the improved grassland soils standard works</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 5" data-track-label="#summary-of-the-actions" data-track-options="{&quot;dimension29&quot;:&quot;Summary of the actions&quot;}" href="#summary-of-the-actions">Summary of the actions</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 6" data-track-label="#details-of-the-actions" data-track-options="{&quot;dimension29&quot;:&quot;Details of the actions&quot;}" href="#details-of-the-actions">Details of the actions</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 7" data-track-label="#action-1-complete-a-soil-assessment-and-produce-a-soil-management-plan" data-track-options="{&quot;dimension29&quot;:&quot;Action 1: Complete a soil assessment and produce a soil management plan&quot;}" href="#action-1-complete-a-soil-assessment-and-produce-a-soil-management-plan">Action 1: Complete a soil assessment and produce a soil management plan</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 8" data-track-label="#action-2-test-soil-organic-matter" data-track-options="{&quot;dimension29&quot;:&quot;Action 2: Test soil organic matter&quot;}" href="#action-2-test-soil-organic-matter">Action 2: Test soil organic matter</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 9" data-track-label="#action-3-minimise-bare-ground-over-winter" data-track-options="{&quot;dimension29&quot;:&quot;Action 3: Minimise bare ground over winter&quot;}" href="#action-3-minimise-bare-ground-over-winter">Action 3: Minimise bare ground over winter</a>
+
+            </li>
+            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 10" data-track-label="#action-4-establish-and-maintain-herbal-leys" data-track-options="{&quot;dimension29&quot;:&quot;Action 4: Establish and maintain herbal leys&quot;}" href="#action-4-establish-and-maintain-herbal-leys">Action 4: Establish and maintain herbal leys</a>
+
+            </li>
+        </ol>
 
     </div>
 

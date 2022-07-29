@@ -226,7 +226,7 @@ module.exports = {
                     content: "agreement",
                     url: "agreemeent-sfi-grassland",
                     pageid: 10,
-                    back: "dashboard",
+                    back: "schemes",
                     next: "",
                     complete: "no"
                 },
@@ -387,6 +387,16 @@ module.exports = {
                     url: "apply-check-your-answers",
                     pageid: 26,
                     back: "apply-for-sfi",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Manage payments",
+                    template: "payments",
+                    content: "payments",
+                    url: "manage-payments",
+                    pageid: 27,
+                    back: "dashboard",
                     next: "",
                     complete: "no"
                 }

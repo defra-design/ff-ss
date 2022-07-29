@@ -150,7 +150,7 @@
                 </ul>
 
                 <p class="govuk-body-s">
-                    <a href="details">Edit these details</a>
+                    <a href="#">Edit these details</a>
                 </p>
 
             </div>
@@ -256,10 +256,13 @@
                             </div>
 
                             <ul class="govuk-list govuk-list--spaced">
-                                <li><a href="land">View/edit your land</a> </li>
+
                                 <li><a href="#">View/edit your soil management plan</a> </li>
                                 <!--     <li><a href="#">View/edit any grazing rights you hold for common land</a> </li> -->
                                 <li><a href="add-som-test">Add a new SOM test result</a> </li>
+
+
+                                <li class="govuk-!-padding-top-4"><a href="land"><b>View/edit your land</b></a> </li>
                             </ul>
 
                         </div>
@@ -288,9 +291,13 @@
                                     <input type="hidden" id="phase" name="phase" value="1">
 
                                 </div>
+                                <ul class="govuk-list govuk-list--spaced">
+                                    <li><a href="manage-payments">Manage payments</a></li>
+                                    <li class="govuk-!-padding-top-4"><a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('paymentlink').submit(); return false;"><b>View payments</b></a></li>
+
+                                </ul>
 
 
-                                <a style="font-size: 1.1875rem;" class="govuk-link" href="" onclick="document.getElementById('paymentlink').submit(); return false;">View payments</a>
                             </form>
 
                         </div>
@@ -306,22 +313,23 @@
                             <h3 class="govuk-heading-m">Agreements</h3>
                             <P class="govuk-!-padding-bottom-4">View your current and historic agreements.</P>
 
-
-                            {% if data['prototypes'][pid]['sfi'] == "on" %}
-                            <p><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-                            {% if data['prototypes'][pid]['LNR'] == "on" %}
-                            <p><a href="#">Local nature reserve</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
-                            {% if data['prototypes'][pid]['grants'] == "on" %}
-                            <p><a href="#">One-off payments &amp; grants</a>
-                            </p>
-                            {% else %}
-                            {% endif %}
+                            <ul class="govuk-list govuk-list--spaced">
+                                {% if data['prototypes'][pid]['sfi'] == "on" %}
+                                <li><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                {% if data['prototypes'][pid]['LNR'] == "on" %}
+                                <li><a href="#">Local nature reserve</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                {% if data['prototypes'][pid]['grants'] == "on" %}
+                                <li><a href="#">One-off payments &amp; grants</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                            </ul>
 
                             <br />
 
@@ -347,6 +355,7 @@
                             {% endif %}
 
                             {% if data['prototypes'][pid]['advice'] == "on" %}
+                            <br />
 
                             <form id="schemelink" action="/0/schemes-link" method="POST">
 
@@ -425,12 +434,14 @@
 
 
                             <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
-                                <li><a href="https://www.gov.uk/guidance/create-and-manage-local-nature-reserves" target="_blank">Local nature reserves: setting up and management</a>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue app-task-list__tag">
+                                <li><a href="https://www.gov.uk/guidance/create-and-manage-local-nature-reserves" target="_blank">LNR: setting up and management</a>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--blue app-task-list__tag">
                                         Updated {% include "includes/lastWeek.html" %}
                                     </strong></li>
 
                                 <li><a href="https://www.gov.uk/guidance/the-sfi-improved-grassland-soils-standard" target="_blank">The SFI improved grassland soils standard</a> </li>
                                 <li><a href="#">Another article</a> </li>
+                                <li class="govuk-!-padding-top-4"><a href="#"><b>Manage bookmarks</b></a> </li>
+
                             </ul>
 
                         </div>
@@ -449,7 +460,7 @@
                             <h3 class="govuk-heading-m">Manage details &amp; preferences</h3>
 
                             <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
-                                <li><a href="details">View/edit your personal details</a> </li>
+                                <li><a href="#">View/edit your personal details</a> </li>
                                 <li><a href="#">Manage notification preferences</a> </li>
                                 <li><a href="#">Change DEFRA ID password</a> </li>
                             </ul>
