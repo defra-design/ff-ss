@@ -21,7 +21,7 @@ module.exports = {
 
     indexlink: "/index",
     devmode: "off",
-    updated: "28-Jul-22",
+    updated: "01-Aug-22",
     maintitle: "Future Farming Single Service",
     team: [
         {
@@ -100,7 +100,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "TBC",
-            updated: "28-Jul-22",
+            updated: "01-Aug-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -341,7 +341,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved grassland standard - guidance",
+                    title: "SFI improved arable and horticultural soils standard - guidance",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-guidance",
@@ -351,7 +351,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved grassland standard - calculator",
+                    title: "SFI improved arable and horticultural soils standard - calculator",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-calculator",
@@ -361,7 +361,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved grassland standard - choose ambition level",
+                    title: "SFI improved arable and horticultural soils standard - choose ambition level",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-levels",
@@ -371,7 +371,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved grassland standard - select your land parcels",
+                    title: "SFI improved arable and horticultural soils standard - select your land parcels",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-land",

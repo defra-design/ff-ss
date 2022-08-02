@@ -64,13 +64,165 @@
 
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-8">
 
-        <p><i>User chooses their ambition level for this scheme (to be lifted from SFI prototype - but perhaps with contextual help/guidance)</i></p>
-
-        <br />
+        {% if data['devmode'] == "on" %}
+        <div class="notes">
+            <p class="govuk-body-s">
+                We may split these questions into four separate pages to allow contextual help and guidance for each
+            </p>
+        </div>
+        <br /><br />
+        {% else %}
+        {% endif %}
 
         <form action="apply-for-sfi" method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                            Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?
+                        </h2>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                            Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?
+                        </h2>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+                            Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?
+                        </h2>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h2 class="govuk-fieldset__heading">
+
+                            Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard as well establish green cover over the winter months (December until end of February)?
+                        </h2>
+                    </legend>
+                    <div id="-hint" class="govuk-hint">
+
+                    </div>
+                    <div class="govuk-radios govuk-radios--conditional">
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="yes" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                Yes
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="no" aria-describedby="-hint">
+                            <label class="govuk-label govuk-radios__label" for="id">
+                                No
+                            </label>
+                            <div id="-hint" class="govuk-hint govuk-radios__hint">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
 
             <input type="hidden" id="land-status" name="stage-level" value="done">
             <input type="hidden" id="land-status" name="applicationstatus" value="started">
@@ -85,7 +237,6 @@
 
 </div>
 
-
-
+{% include "includes/devmode.html" %}
 
 {% endblock %}
