@@ -38,7 +38,7 @@
             <a href="dashboard" class="govuk-breadcrumbs__link">Dashboard</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">All actions</a>
+            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">All tasks</a>
         </li>
 
     </ol>
@@ -166,8 +166,81 @@
 
 <div class="govuk-grid-row govuk-!-padding-bottom-8">
 
+    <div class="govuk-grid-column-full">
+
+        <p><span class="govuk-caption-l">Scheme: <b><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard</a></b> </span></p>
+
+        <!--    <ul class="govuk-list govuk-list--bullet govuk-!-padding-top-8">
+            <li><i>Select land parcels to make sample area</i></li>
+            <li><i>Attach file</i></li>
+            <li><i>Submit</i></li>
+        </ul> -->
+
+        <br />
+
+        <form class="govuk-!-padding-top-8" action="/0/add-som-test" method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h2 class="govuk-fieldset__heading">
+                            Select land parcels that were part of the sample area
+                        </h2>
+                    </legend>
+                    <div id="waste-hint" class="govuk-hint">
+                        Select all that apply.
+                    </div>
+                    <br />
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                LP1
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                                LP 2
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                                LP3
+                            </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+            <br />
+            <input type="hidden" id="sms1b" name="resultsattached" value="done">
+            {% if data['resultsattached'] == "done" %}
+            {% else %}
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Upload test results
+            </button>
+            {% endif %}
+        </form>
+
+        <br />
+        {% if data['resultsattached'] == "done" %}
+        <form action="/0/tasks" method="POST">
 
 
+
+            <button class="govuk-button " data-module="govuk-button">
+                Save and continue
+            </button>
+        </form>
+        {% else %}
+        {% endif %}
+        <!--  <button class="govuk-button" data-module="govuk-button">
+            Submit results
+        </button> -->
+
+    </div>
 </div>
 
 {% endblock %}

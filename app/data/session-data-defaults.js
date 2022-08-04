@@ -297,7 +297,7 @@ module.exports = {
                     content: "task",
                     url: "add-som-test",
                     pageid: 17,
-                    back: "actions",
+                    back: "tasks",
                     next: "",
                     complete: "no"
                 },
@@ -438,6 +438,15 @@ module.exports = {
                     url: "apply-for-sfi-levels-5",
                     pageid: 31,
                     back: "apply-for-sfi-levels-4",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Vet visit report: Imaginary Farm Ltd",
+                    content: "application",
+                    url: "vet-visit-report",
+                    pageid: 32,
+                    back: "documents",
                     next: "",
                     complete: "no"
                 }
