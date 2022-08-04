@@ -46,4 +46,11 @@ router.post('/0/schemes-link', function (req, res) {
 
 })
 
+// pid0 - select land parcels
+router.post('/0/tasks-link', function (req, res) {
+
+    res.redirect('tasks')
+
+})
+
 module.exports = router

@@ -161,21 +161,6 @@
 </div>
 {% endblock %}
 
-<!--
-<div class="govuk-grid-row govuk-!-padding-bottom-8">
-
-    <div class="govuk-grid-column-one-half">
-
-        <p>box</p>
-    </div>
-
-    <div class="govuk-grid-column-one-half">
-
-        <p>box</p>
-    </div>
-
-</div> -->
-
 <div class="govuk-grid-row govuk-!-padding-bottom-8">
 
     <div class="govuk-grid-column-full">
@@ -187,113 +172,164 @@
             </summary>
             <div class="govuk-details__text">
                 <form id="paymentstable" action="/0/schemes-toggle-form" method="POST">
-                    <div class="govuk-grid-column-one-quarter">
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
 
-                        <div class="govuk-form-group">
-                            <label class="govuk-label" for="sort">
-                                Sort by
-                            </label>
-                            <select class="govuk-select" id="sort" name="sort">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="sort">
+                                    Sort by
+                                </label>
+                                <select class="govuk-select" id="sort" name="sort">
 
-                                <option value="scheme" selected>Scheme name</option>
-                                <option value="outcome">Outcome</option>
-                                <option value="status">Status</option>
-                            </select>
+                                    <option value="scheme" selected>Scheme name</option>
+                                    <option value="type">Type</option>
+                                    <option value="status">Status</option>
+                                </select>
+                            </div>
+
                         </div>
-
                     </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-quarter">
+                            <div class="govuk-form-group">
+                                <p> Show:</p>
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
-                    <div class="govuk-grid-column-one-quarter">
-                        <div class="govuk-form-group">
-                            <p> Show:</p>
-                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                                <div class="govuk-checkboxes__item">
+                                    <div class="govuk-checkboxes__item">
 
-                                    <input class="govuk-checkboxes__input togz" id="paid-tog" name="agreed" type="checkbox" value="show" {{ checked("agreed", "show") }}>
-                                    <label class="govuk-label govuk-checkboxes__label" for="paid">
-                                        Agreement in place
-                                    </label>
+                                        <input class="govuk-checkboxes__input" id="scheduled-tog" name="ongoing" type="checkbox" value="show" {{ checked("ongoing", "show") }}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                            Ongoing
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="govuk-grid-column-one-quarter">
+                            <div class="govuk-form-group">
+                                <p>&nbsp;</p>
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                    <div class="govuk-checkboxes__item">
+
+                                        <input class="govuk-checkboxes__input" id="scheduled-tog" name="oneoff" type="checkbox" value="show" {{ checked("oneoff", "show") }}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                            One-off
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-quarter">
+                            <div class="govuk-form-group">
+
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+
+                                        <input class="govuk-checkboxes__input togz" id="paid-tog" name="agreed" type="checkbox" value="show" {{ checked("agreed", "show") }}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="paid">
+                                            Agreement in place
+                                        </label>
+                                    </div>
+
                                 </div>
 
                             </div>
 
                         </div>
+                        <div class="govuk-grid-column-one-quarter">
+                            <div class="govuk-form-group">
 
-                    </div>
-                    <div class="govuk-grid-column-one-quarter">
-                        <div class="govuk-form-group">
-                            <p>&nbsp;</p>
-                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
-                                <div class="govuk-checkboxes__item">
+                                    <div class="govuk-checkboxes__item">
 
-                                    <input class="govuk-checkboxes__input" id="pending-tog" name="eligible" type="checkbox" value="show" {{ checked("eligible", "show") }}>
-                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                                        Eligible
-                                    </label>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="govuk-grid-column-one-quarter">
-                        <div class="govuk-form-group">
-                            <p>&nbsp;</p>
-                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-
-                                <div class="govuk-checkboxes__item">
-
-                                    <input class="govuk-checkboxes__input" id="scheduled-tog" name="ineligible" type="checkbox" value="show" {{ checked("ineligible", "show") }}>
-                                    <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                                        Ineligible
-                                    </label>
+                                        <input class="govuk-checkboxes__input" id="pending-tog" name="eligible" type="checkbox" value="show" {{ checked("eligible", "show") }}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                            Eligible
+                                        </label>
+                                    </div>
                                 </div>
 
                             </div>
 
                         </div>
-                    </div>
-                    <button style="float: right;" class="govuk-button" data-module="govuk-button">
-                        Update table
-                    </button>
+                        <div class="govuk-grid-column-one-quarter">
+                            <div class="govuk-form-group">
 
+                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+                                    <div class="govuk-checkboxes__item">
+
+                                        <input class="govuk-checkboxes__input" id="scheduled-tog" name="ineligible" type="checkbox" value="show" {{ checked("ineligible", "show") }}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                            Ineligible
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
+                            <button style="float: right;" class="govuk-button" data-module="govuk-button">
+                                Update table
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </details>
 
     </div>
+
     <div class="govuk-grid-column-full govuk-!-padding-top-4">
 
-        <table class="govuk-table govuk-!-padding-top-8">
+        <table class="govuk-table">
 
             <thead class="govuk-table__head">
 
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Scheme name</th>
-                    <th scope="col" class="govuk-table__header">Outcome</th>
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <th scope="col" class="govuk-table__header">Name</th>
                     <th scope="col" class="govuk-table__header">Status</th>
-                    <th scope="col" class="govuk-table__header">&nbsp;</th>
+                    <th scope="col" class="govuk-table__header">Next steps</th>
                 </tr>
             </thead>
+
             <tbody class="govuk-table__body">
 
-                {% if data['agreed'] == "show" %}
-                <tr class="govuk-table__row paid toggleDiv">
+                {% if data['agreed'] == "show" and data['ongoing'] == "show" %}
+                <tr class="govuk-table__row paid">
+                    <td class="govuk-table__cell">Ongoing</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme</td>
+
+                    <td class="govuk-table__cell">Agreement in place</td>
+                    <td class="govuk-table__cell"><a href="#">View agreement</a> </td>
+
+                </tr>
+                <tr class="govuk-table__row paid ">
+                    <td class="govuk-table__cell">Ongoing</td>
                     <td class="govuk-table__cell">SFI improved grassland soils standard</td>
-                    <td class="govuk-table__cell">Improved grasslands</td>
                     <td class="govuk-table__cell">Agreement in place</td>
                     <td class="govuk-table__cell"><a href="agreemeent-sfi-grassland.html">View agreement</a> </td>
-
                 </tr>
 
                 {% else %}
                 {% endif %}
 
-                {% if data['eligible'] == "show" %}
-                <tr class="govuk-table__row paid toggleDiv">
+                {% if data['eligible'] == "show" and data['ongoing'] == "show" %}
+                <tr class="govuk-table__row paid ">
+                    <td class="govuk-table__cell">Ongoing</td>
                     <td class="govuk-table__cell">{{ data['prototypes'][pid]['scheme'] }}</td>
-                    <td class="govuk-table__cell">Improved soil health</td>
                     <td class="govuk-table__cell">Eligible</td>
                     <td class="govuk-table__cell">
                         {% if data['applicationstatus'] == "started" %}
@@ -308,10 +344,40 @@
                 {% else %}
                 {% endif %}
 
-                {% if data['ineligible'] == "show" %}
-                <tr class="govuk-table__row paid toggleDiv">
+                {% if data['eligible'] == "show" and data['oneoff'] == "show" %}
+
+                <tr class="govuk-table__row paid ">
+                    <td class="govuk-table__cell">One-off</td>
+                    <td class="govuk-table__cell">Lump sum payment to leave or retire from farming</td>
+                    <td class="govuk-table__cell">Eligible</td>
+                    <td class="govuk-table__cell">
+
+                        <a href="apply-for-sfi" class="govuk-button">Apply</a>
+
+                    </td>
+                </tr>
+                {% else %}
+                {% endif %}
+
+                {% if data['eligible'] == "show" and data['oneoff'] == "show" %}
+                <tr class="govuk-table__row paid ">
+                    <td class="govuk-table__cell">One-off</td>
+                    <td class="govuk-table__cell">Farming Investment Fund</td>
+                    <td class="govuk-table__cell">Eligible</td>
+                    <td class="govuk-table__cell">
+
+                        <a href="#" class="govuk-button">Apply</a>
+
+                    </td>
+                </tr>
+
+                {% else %}
+                {% endif %}
+
+                {% if data['ineligible'] == "show" and data['ongoing'] == "show" %}
+                <tr class="govuk-table__row paid ">
+                    <td class="govuk-table__cell">Ongoing</td>
                     <td class="govuk-table__cell">SFI moorland standard</td>
-                    <td class="govuk-table__cell">Improved moorland</td>
                     <td class="govuk-table__cell">Ineligible - no land covers within an eligible land type</td>
                     <td class="govuk-table__cell"> </td>
 
@@ -327,14 +393,11 @@
         <br />
 
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Export this list as a PDF
+            Download this list as a PDF
         </button>
 
     </div>
 
 </div>
-
-
-
 
 {% endblock %}

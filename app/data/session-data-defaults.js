@@ -21,7 +21,7 @@ module.exports = {
 
     indexlink: "/index",
     devmode: "off",
-    updated: "01-Aug-22",
+    updated: "04-Aug-22",
     maintitle: "Future Farming Single Service",
     team: [
         {
@@ -100,7 +100,7 @@ module.exports = {
             url: "/0",
             status: "building",
             desc: "TBC",
-            updated: "01-Aug-22",
+            updated: "04-Aug-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -109,13 +109,14 @@ module.exports = {
             payments: "on",
             land: "on",
             messages: "on",
-            reminders: "on",
+            tasks: "on",
             advice: "on",
             news: "on",
             sfi: "on",
             vets: "on",
             grants: "on",
-            LNR: "on",
+            LNR: "off",
+            historic: "on",
             scheme: "SFI arable and horticultural soils standard",
             agreed: "show",
             eligible: "show",
@@ -231,7 +232,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "All schemes",
+                    title: "All grants and funding",
                     template: "schemes",
                     content: "payment statement",
                     url: "schemes",
@@ -261,10 +262,10 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Actions",
-                    template: "actions",
-                    content: "actions",
-                    url: "action",
+                    title: "Tasks",
+                    template: "tasks",
+                    content: "tasks",
+                    url: "tasks",
                     pageid: 14,
                     back: "dashboard",
                     next: "",
@@ -281,10 +282,10 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Action",
-                    template: "actions",
-                    content: "action",
-                    url: "action",
+                    title: "Task",
+                    template: "tasks",
+                    content: "tasks",
+                    url: "task",
                     pageid: 16,
                     back: "actions",
                     next: "",
@@ -292,8 +293,8 @@ module.exports = {
                 },
                 {
                     title: "Add your SOM test results",
-                    template: "actions",
-                    content: "action",
+                    template: "tasks",
+                    content: "task",
                     url: "add-som-test",
                     pageid: 17,
                     back: "actions",
@@ -311,20 +312,20 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "Action",
-                    template: "actions",
-                    content: "action",
-                    url: "action-2",
+                    title: "Task",
+                    template: "tasks",
+                    content: "task",
+                    url: "task-2",
                     pageid: 19,
                     back: "actions",
                     next: "",
                     complete: "no"
                 },
                 {
-                    title: "Action",
-                    template: "actions",
-                    content: "action",
-                    url: "action-3",
+                    title: "Task",
+                    template: "tasks",
+                    content: "task",
+                    url: "task-3",
                     pageid: 20,
                     back: "actions",
                     next: "",

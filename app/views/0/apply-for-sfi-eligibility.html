@@ -68,9 +68,30 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-        <p><i>Here's a paragraph that summaries why we believe this farm is eligible for this scheme, i.e. which pieces of stored data are being used to determine it.</i></p>
+        <p><i>A check your answers type page summarising eligibility factors, and wanting user to confirm them.</i></p>
 
-        <p><i>The user is asked to confirm this data is still accurate.</i></p>
+        <br /><br />
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-!-padding-top-8">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Business
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p>{{ data['businessname'] }}<br />
+                        Waterloo Farm <br />
+                        1 Godminster Lane <br />
+                        Drayton <br />
+                        Bideford <br />
+                        GU7 2BX
+                    </p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a href="#">Change</a>
+                </dd>
+            </div>
+
+        </dl>
 
         <br />
 

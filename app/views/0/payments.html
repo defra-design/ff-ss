@@ -351,7 +351,6 @@
                     <th scope="col" class="govuk-table__header">Payment date</th>
                     <th scope="col" class="govuk-table__header">Scheme</th>
                     <th scope="col" class="govuk-table__header">Amount</th>
-
                     <th scope="col" class="govuk-table__header">Details</th>
                     <th scope="col" class="govuk-table__header">Status</th>
 
@@ -360,7 +359,7 @@
             <tbody class="govuk-table__body">
 
                 {% if data['paid'] == "show" %}
-                <tr class="govuk-table__row paid toggleDiv">
+                <!--    <tr class="govuk-table__row paid toggleDiv">
                     <td class="govuk-table__cell">13493</td>
                     <td class="govuk-table__cell">28 May 2021</td>
                     <td class="govuk-table__cell">Basic Payment Scheme 2021</td>
@@ -372,18 +371,13 @@
                             Paid
                         </strong></td>
                     <td class="govuk-table__cell">&nbsp;</td>
-                </tr>
+                </tr> -->
 
-
-                {% else %}
-                {% endif %}
-
-                {% if data['paid'] == "show" %}
 
                 <tr class="govuk-table__row paidrow">
                     <td class="govuk-table__cell">17893</td>
-                    <td class="govuk-table__cell">30 May 2022</td>
-                    <td class="govuk-table__cell">Basic Payment Scheme 2022</td>
+                    <td class="govuk-table__cell">30 Jul 2022</td>
+                    <td class="govuk-table__cell">Basic Payment Scheme 2022 - Advanced payment</td>
                     <td class="govuk-table__cell">£1,376.00 <br /> </td>
                     <td class="govuk-table__cell">
                         <a href="../../../public/images/BPS%20claim%20statement.pdf" target="_blank">View payment statement (PDF)</a>
@@ -465,7 +459,7 @@
         <br />
 
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Export this list as a PDF
+            Download this list as a PDF
         </button>
 
     </div>

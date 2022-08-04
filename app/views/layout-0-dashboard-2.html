@@ -76,8 +76,10 @@
 
         <ul class="govuk-list govuk-list--spaced govuk-!-padding-bottom-8">
 
+            <li>Links to be updated when layout finalised</li>
 
-            <li><a href="#business">Business</a>
+
+            <!--  <li><a href="#business">Business</a>
                 <ul class="govuk-list">
                     <li>&nbsp;- <a href="#land">Land</a>
                     </li>
@@ -92,7 +94,7 @@
             </li>
 
             <!--    <li><a href="#agreements">Agreements &amp; applications</a>
-            </li> -->
+            </li> 
 
             <li><a href="#documents">Documents</a>
                 <ul class="govuk-list">
@@ -105,7 +107,7 @@
 
             <li><a href="#account">Account</a>
             </li>
-
+-->
         </ul>
 
     </div>
@@ -212,7 +214,17 @@
                             {% endif %}
 
                             <li>&nbsp;</li>
-                            <li><a href="tasks"><b>View all tasks</b></a></li>
+                            <li>
+                                <form id="tasklink" action="/0/tasks" method="POST">
+                                    <input type="hidden" id="sms1b" name="notstarted" value="show">
+                                    <input type="hidden" id="sms1b" name="inprogress" value="show">
+                                    <input type="hidden" id="sms1b" name="completed" value="hide">
+                                    <input type="hidden" id="sms1b" name="eligible" value="show">
+                                    <input type="hidden" id="sms1b" name="ineligible" value="hide">
+                                    <p><a href="" onclick="document.getElementById('tasklink').submit(); return false;"><b>View all tasks</b></a>
+                                    </p>
+                                </form>
+                            </li>
                         </ul>
 
                     </div>
@@ -222,48 +234,158 @@
 
                 </div>
 
-                <div id="business" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+                <div id="land" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
 
-                    <h3 class="govuk-heading-l">Business</h3>
+                    <h3 class="govuk-heading-l">Land</h3>
 
                     <div class="col-container">
 
                         {% if data['prototypes'][pid]['land'] == "on" %}
-                        <div id="land" class="dashpanel panelbg">
+                        <div class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Land</h3>
 
-                            <p>View maps of your land, edit your land parcels or transfer your land to another business.</p>
-
                             <div class="govuk-inset-text">
 
-                                <p>Land was last updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
+                                <p>3 x land parcels were updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
                             </div>
 
                             <ul class="govuk-list govuk-list--spaced">
 
-                                <li><a href="#">View/edit your soil management plan</a> </li>
-                                <!--     <li><a href="#">View/edit any grazing rights you hold for common land</a> </li> -->
+                                <!--       <li><a href="#">View/edit your soil management plan</a> </li>
+                                <li><a href="#">View/edit any grazing rights you hold for common land</a> </li> -->
                                 <li><a href="add-som-test">Add a new SOM test result</a> </li>
 
 
-                                <li class="govuk-!-padding-top-4"><a href="land"><b>View/edit your land</b></a> </li>
+                                <li class="govuk-!-padding-top-4"><a href="land"><b>View or edit your land</b></a> </li>
                             </ul>
 
                         </div>
                         {% else %}
                         {% endif %}
 
+                        <div class="dashpanel">
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div id="business" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+                    <h3 class="govuk-heading-l">Grants and payments</h3>
+
+                    <div class="col-container">
+
+                        <div id="agreements" class="dashpanel panelbg">
+                            <h3 class="govuk-heading-m">Your agreements</h3>
+
+                            <ul class="govuk-list govuk-list--spaced">
+                                {% if data['prototypes'][pid]['sfi'] == "on" %}
+                                <li><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                {% if data['prototypes'][pid]['LNR'] == "on" %}
+                                <li><a href="#">Local nature reserve</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                {% if data['prototypes'][pid]['historic'] == "on" %}
+                                <li><a href="#">Basic Payment Scheme</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                <!--   {% if data['prototypes'][pid]['grants'] == "on" %}
+                                <li><a href="#">One-off payments &amp; grants</a>
+                                </li>
+                                {% else %}
+                                {% endif %}  -->
+                            </ul>
+
+                            <br />
+
+                            <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;"><b>View all agreements</b></a>
+                            </p>
+
+
+                        </div>
+
+                        <div id="schemes" class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Funding</h3>
+
+                            {% if data['applicationstatus'] == "started" %}
+                            <div id="applications" class="govuk-inset-text">
+                                <h3 class="govuk-heading-s">Current application(s):</h3>
+                                <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
+                                </p>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+                            {% if data['prototypes'][pid]['advice'] == "on" %}
+
+                            <ul class="govuk-list govuk-list--spaced">
+
+                                <li>
+                                    <form id="oneoff" action="/0/schemes-link" method="POST">
+                                        <input type="hidden" id="sms1b" name="ongoing" value="hide">
+                                        <input type="hidden" id="sms1b" name="oneoff" value="show">
+                                        <input type="hidden" id="sms1b" name="agreed" value="hide">
+                                        <input type="hidden" id="sms1b" name="eligible" value="show">
+                                        <input type="hidden" id="sms1b" name="ineligible" value="show">
+                                        <p><a href="" onclick="document.getElementById('oneoff').submit(); return false;">Apply for a one-off payment</a>
+                                        </p>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form id="schemelink" action="/0/schemes-link" method="POST">
+                                        <input type="hidden" id="sms1b" name="ongoing" value="show">
+                                        <input type="hidden" id="sms1b" name="oneoff" value="show">
+                                        <input type="hidden" id="sms1b" name="agreed" value="hide">
+                                        <input type="hidden" id="sms1b" name="eligible" value="show">
+                                        <input type="hidden" id="sms1b" name="ineligible" value="hide">
+                                        <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;">View all funding this farm is eligible for</a>
+                                        </p>
+                                    </form>
+                                </li>
+
+                            </ul>
+
+
+
+                            <form id="schemelink2" action="/0/schemes-link" method="POST">
+                                <br />
+                                <input type="hidden" id="sms1b" name="ongoing" value="show">
+                                <input type="hidden" id="sms1b" name="oneoff" value="show">
+                                <input type="hidden" id="sms1b" name="agreed" value="show">
+                                <input type="hidden" id="sms1b" name="eligible" value="show">
+                                <input type="hidden" id="sms1b" name="ineligible" value="show">
+                                <p><a href="" onclick="document.getElementById('schemelink2').submit(); return false;"><b>View all funding</b></a>
+                                </p>
+                            </form>
+
+                            {% else %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <div class="col-container">
+
                         {% if data['prototypes'][pid]['payments'] == "on" %}
                         <div id="payments" class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Payments</h3>
 
-                            <p>View details of scheduled and previous payments made to your business.</p>
-
                             <div class="govuk-inset-text">
                                 <h3 class="govuk-heading-s">Next payment:</h3>
-                                <p>Your quarterly SFI grassland payment is <b>£279.65</b>. We will pay this into your account on <b>{% include "includes/nextWeek.html" %}</b>.</p>
+                                <p>Your quarterly SFI grassland payment is <b>£279.65</b> and wil be paid on <b>{% include "includes/nextWeek.html" %}</b>.</p>
+                                <p>Deductions have been made.</p>
                             </div>
 
                             <form id="paymentlink" action="payments" method="POST">
@@ -289,78 +411,8 @@
                         {% else %}
                         {% endif %}
 
+                        <div class="dashpanel">
 
-                    </div>
-
-                    <div class="col-container">
-
-                        <div id="agreements" class="dashpanel panelbg">
-                            <h3 class="govuk-heading-m">Agreements</h3>
-                            <P class="govuk-!-padding-bottom-4">View your current and historic agreements.</P>
-
-                            <ul class="govuk-list govuk-list--spaced">
-                                {% if data['prototypes'][pid]['sfi'] == "on" %}
-                                <li><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
-                                </li>
-                                {% else %}
-                                {% endif %}
-                                {% if data['prototypes'][pid]['LNR'] == "on" %}
-                                <li><a href="#">Local nature reserve</a>
-                                </li>
-                                {% else %}
-                                {% endif %}
-                                {% if data['prototypes'][pid]['grants'] == "on" %}
-                                <li><a href="#">One-off payments &amp; grants</a>
-                                </li>
-                                {% else %}
-                                {% endif %}
-                            </ul>
-
-                            <br />
-
-                            <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;"><b>View all agreements</b></a>
-                            </p>
-
-
-                        </div>
-
-                        <div id="schemes" class="dashpanel panelbg">
-
-                            <h3 class="govuk-heading-m">Schemes</h3>
-
-                            <p class="">View all future farming schemes.</p>
-
-                            {% if data['applicationstatus'] == "started" %}
-                            <div id="applications" class="govuk-inset-text">
-                                <h3 class="govuk-heading-s">Current application(s):</h3>
-                                <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
-                                </p>
-                            </div>
-                            {% else %}
-                            {% endif %}
-
-                            {% if data['prototypes'][pid]['advice'] == "on" %}
-                            <br />
-
-                            <form id="schemelink" action="/0/schemes-link" method="POST">
-
-                                <input type="hidden" id="sms1b" name="agreed" value="show">
-                                <input type="hidden" id="sms1b" name="eligible" value="show">
-                                <input type="hidden" id="sms1b" name="ineligible" value="hide">
-                                <p><a href="" onclick="document.getElementById('schemelink').submit(); return false;">View all schemes this farm is eligible for</a>
-                                </p>
-                            </form>
-                            <form id="schemelink2" action="/0/schemes-link" method="POST">
-                                <br />
-                                <input type="hidden" id="sms1b" name="agreed" value="show">
-                                <input type="hidden" id="sms1b" name="eligible" value="show">
-                                <input type="hidden" id="sms1b" name="ineligible" value="show">
-                                <p><a href="" onclick="document.getElementById('schemelink2').submit(); return false;"><b>View all schemes</b></a>
-                                </p>
-                            </form>
-
-                            {% else %}
-                            {% endif %}
                         </div>
 
                     </div>
@@ -376,10 +428,10 @@
                         <div id="files" class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Saved files</h3>
-
+                            <!-- s
                             <p>Here you can save your own documents, such as SOM test results, photographs, land agreements, and certificates.</p>
 
-                            <!--     <p>Neither DEFRA or the RPA will be able to view these documents unless you grant permission.</p> -->
+                         <p>Neither DEFRA or the RPA will be able to view these documents unless you grant permission.</p> -->
 
                             <p>All correspondence sent to you will be saved here automatically.</p>
 
@@ -390,19 +442,17 @@
                                 </strong>
                             </div>
 
-
-                            <br />
-
                             <div class="govuk-grid-row">
 
                                 <div class="govuk-grid-column-full">
-
-                                    <a href="upload-document"> <button class="govuk-button" data-module="govuk-button">
+                                    <p><a href="upload-document">
                                             Upload a document
-                                        </button>
-                                    </a>
 
+                                        </a></p>
+                                    <br />
                                     <p><a href="documents"><b>View all saved documents</b></a></p>
+
+                                    <br />
 
                                 </div>
 
@@ -414,7 +464,6 @@
                             <h3 class="govuk-heading-m">Bookmarks</h3>
 
                             <p>Here you can see all the content from GOV.UK that you have saved.</p>
-                            <p>You will get notified if any of this content has been updated.</p>
 
 
                             <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">
@@ -423,7 +472,6 @@
                                     </strong></li>
 
                                 <li><a href="https://www.gov.uk/guidance/the-sfi-improved-grassland-soils-standard" target="_blank">The SFI improved grassland soils standard</a> </li>
-                                <li><a href="#">Another article</a> </li>
                                 <li class="govuk-!-padding-top-4"><a href="#"><b>Manage bookmarks</b></a> </li>
 
                             </ul>
@@ -436,7 +484,7 @@
 
                 <div id="account" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
 
-                    <h3 class="govuk-heading-l">DEFRA ID account</h3>
+                    <h3 class="govuk-heading-l">DEFRA ID</h3>
 
                     <div class="col-container">
 
@@ -454,10 +502,10 @@
 
                             <h3 class="govuk-heading-m">Manage permissions</h3>
 
-                            <p>This permission allows someone (including agents) to act for this business</p>
+                            <p>Permissions allow someone (including agents) to act for this business</p>
 
                             <ul class="govuk-list">
-                                <li><a href="permissions">View/manage permissions</a> </li>
+                                <li><a href="permissions">View and manage permissions</a> </li>
                             </ul>
 
                         </div>
