@@ -22,7 +22,7 @@
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
-{% set pageid = 24 %}
+{% set pageid = 30 %}
 
 {% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
 
@@ -79,25 +79,22 @@
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                    How to complete a soil assessment and produce a soil management plan
+                    What is green cover?
                 </span>
             </summary>
             <div class="govuk-details__text">
-                <p> To complete a soil assessment, you’ll usually need to:</p>
+                <p>Green cover is any crop or vegetation that covers bare soil to protect it over the winter.</p>
+                <p>This could include:</p>
 
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>assess soil type, texture, structure and biology</li>
-                    <li>assess risks to your soil</li>
-                    <li>identify historic features</li>
+                    <li>autumn-sown crops such as winter cereals, linseed and oilseed rape</li>
+                    <li>a quick-growing cover crop</li>
+                    <li>leaving weedy stubbles that give sufficient cover to protect the soil</li>
                 </ul>
-
-                <p>Try to assess the soil and take soil samples when it is not too dry or wet. Spring or autumn are usually the best time of year to complete a soil assessment.</p>
-
-                <a href="https://www.gov.uk/guidance/how-to-do-the-actions-in-the-arable-and-horticultural-soils-standard#test-som" target="_blank">Read more guidance on how to complete a soil assessment and produce a soil management plan</a>
             </div>
         </details>
 
-        <form action="apply-for-sfi-levels-2" method="POST">
+        <form action="apply-for-sfi" method="POST">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="-hint">
@@ -108,7 +105,7 @@
                     <div class="govuk-radios govuk-radios--conditional">
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="yes" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 Yes
                             </label>
@@ -118,7 +115,7 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-4" type="radio" value="no" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 No
                             </label>
@@ -131,7 +128,8 @@
                 </fieldset>
             </div>
 
-            <input type="hidden" id="land-status" name="stage-level" value="started">
+
+            <input type="hidden" id="land-status" name="stage-level" value="done">
             <input type="hidden" id="land-status" name="applicationstatus" value="started">
 
             <button class="govuk-button " data-module="govuk-button">
@@ -139,6 +137,11 @@
             </button>
 
         </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
 
     </div>
 

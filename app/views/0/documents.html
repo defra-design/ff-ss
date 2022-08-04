@@ -166,9 +166,12 @@
             <thead class="govuk-table__head">
 
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Document type</th>
+
                     <th scope="col" class="govuk-table__header">Date uploaded</th>
-                    <th scope="col" class="govuk-table__header">Shared with DEFRA</th>
+                    <th scope="col" class="govuk-table__header">Document type</th>
+                    <th scope="col" class="govuk-table__header">Uploaded by</th>
+                    <th scope="col" class="govuk-table__header">Attached to agreement</th>
+                    <th scope="col" class="govuk-table__header">Attached to land</th>
                     <th scope="col" class="govuk-table__header">&nbsp;</th>
                 </tr>
 
@@ -176,10 +179,13 @@
             <tbody class="govuk-table__body">
 
                 <tr class="govuk-table__row paid toggleDiv">
-                    <td class="govuk-table__cell">Example</td>
-                    <td class="govuk-table__cell">Example</td>
-                    <td class="govuk-table__cell">No</td>
-                    <td class="govuk-table__cell"><a href="#">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Share</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" style="color: #d4351c !important;">Delete</a> </td>
+
+                    <td class="govuk-table__cell">{% include "includes/last2Weeks.html" %}</td>
+                    <td class="govuk-table__cell">Vet visit report</td>
+                    <td class="govuk-table__cell">[Vet name]</td>
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell">-</td>
+                    <td class="govuk-table__cell"><a href="#">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Manage</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" style="color: #d4351c !important;">Delete</a> </td>
                 </tr>
 
             </tbody>

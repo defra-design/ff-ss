@@ -22,7 +22,7 @@
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
-{% set pageid = 24 %}
+{% set pageid = 28 %}
 
 {% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
 
@@ -79,36 +79,41 @@
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                    How to complete a soil assessment and produce a soil management plan
+                    How to select a sample area
                 </span>
             </summary>
             <div class="govuk-details__text">
-                <p> To complete a soil assessment, you’ll usually need to:</p>
+                <p>A sample area is an area of land across which you will take soil samples.</p>
+
+                <p>When you select sample areas, try to choose areas which have:</p>
 
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>assess soil type, texture, structure and biology</li>
-                    <li>assess risks to your soil</li>
-                    <li>identify historic features</li>
+                    <li>a similar soil type</li>
+                    <li>been managed in a similar way in the past</li>
                 </ul>
 
-                <p>Try to assess the soil and take soil samples when it is not too dry or wet. Spring or autumn are usually the best time of year to complete a soil assessment.</p>
+                <p>If the soil type and past management is similar, you can take account of the size of the land parcels:</p>
 
-                <a href="https://www.gov.uk/guidance/how-to-do-the-actions-in-the-arable-and-horticultural-soils-standard#test-som" target="_blank">Read more guidance on how to complete a soil assessment and produce a soil management plan</a>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>select one sample area in each land parcel if you consider the land parcels to be an average size</li>
+                    <li>select a number of smaller sample areas within a large land parcel</li>
+                    <li>combine small land parcels into a single sample area, but try to avoid the combined area being too large as this will reduce the soil testing analysis accuracy</li>
+                </ul>
+
             </div>
         </details>
 
-        <form action="apply-for-sfi-levels-2" method="POST">
+        <form action="apply-for-sfi-levels-3" method="POST">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="-hint">
-
                     <div id="-hint" class="govuk-hint">
 
                     </div>
                     <div class="govuk-radios govuk-radios--conditional">
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="yes" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 Yes
                             </label>
@@ -118,7 +123,7 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-2" type="radio" value="no" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 No
                             </label>
@@ -130,7 +135,6 @@
                     </div>
                 </fieldset>
             </div>
-
             <input type="hidden" id="land-status" name="stage-level" value="started">
             <input type="hidden" id="land-status" name="applicationstatus" value="started">
 
@@ -141,6 +145,8 @@
         </form>
 
     </div>
+
+
 
 </div>
 

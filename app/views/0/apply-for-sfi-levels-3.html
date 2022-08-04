@@ -22,7 +22,7 @@
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
-{% set pageid = 24 %}
+{% set pageid = 29 %}
 
 {% set totalsections = data['prototypes'][pid]['application'][0]['sections'].length %}
 
@@ -79,25 +79,19 @@
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                    How to complete a soil assessment and produce a soil management plan
+                    What to do if your land has 'peaty soil'
                 </span>
             </summary>
             <div class="govuk-details__text">
-                <p> To complete a soil assessment, you’ll usually need to:</p>
+                <p>If your land has ‘peaty soil’, you should not complete this action on that land because adding organic matter can speed up peat decomposition. Peaty soil means there is around 20% or more organic matter to a depth of 40cm or more.</p>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>assess soil type, texture, structure and biology</li>
-                    <li>assess risks to your soil</li>
-                    <li>identify historic features</li>
-                </ul>
+                <p>You may already know if there is peaty soil on your land. If you do not know, the SOM test results from completing action 2 will tell you. You’ll still be paid for this area in this standard, even if you cannot complete the action.</p>
 
-                <p>Try to assess the soil and take soil samples when it is not too dry or wet. Spring or autumn are usually the best time of year to complete a soil assessment.</p>
 
-                <a href="https://www.gov.uk/guidance/how-to-do-the-actions-in-the-arable-and-horticultural-soils-standard#test-som" target="_blank">Read more guidance on how to complete a soil assessment and produce a soil management plan</a>
             </div>
         </details>
 
-        <form action="apply-for-sfi-levels-2" method="POST">
+        <form action="apply-for-sfi-levels-4" method="POST">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="-hint">
@@ -108,7 +102,7 @@
                     <div class="govuk-radios govuk-radios--conditional">
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="yes" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="yes" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 Yes
                             </label>
@@ -118,7 +112,7 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="id" name="arable-action-1" type="radio" value="no" aria-describedby="-hint">
+                            <input class="govuk-radios__input" id="id" name="arable-action-3" type="radio" value="no" aria-describedby="-hint">
                             <label class="govuk-label govuk-radios__label" for="id">
                                 No
                             </label>

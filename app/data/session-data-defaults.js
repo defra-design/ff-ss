@@ -362,7 +362,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved arable and horticultural soils standard - choose ambition level",
+                    title: "Action 1: Will you complete a soil assessment and produce a written soil management plan covering the land entered into the standard in the first year of your SFI standards agreement?",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-levels",
@@ -398,6 +398,46 @@ module.exports = {
                     url: "manage-payments",
                     pageid: 27,
                     back: "dashboard",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action 2: Will you make sure all the land parcels entered into the standard have been tested for soil organic matter within the last five years?",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-levels-2",
+                    pageid: 28,
+                    back: "apply-for-sfi-levels",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action 3: Will you add organic matter to the soil all the land parcels entered into the standard at least once during your 3-year SFI standards agreement?",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-levels-3",
+                    pageid: 29,
+                    back: "apply-for-sfi-levels-2",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action 4: Will you make sure that at least 70% of total area of land entered into this level of the standard is well establish green cover over the winter months (December until end of February)?",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-levels-4",
+                    pageid: 30,
+                    back: "apply-for-sfi-levels-3",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "Action 4:  Will you make sure there is a well-established screen cover on at least 50% and multi species cover crops on at least an additional 20% of the land entered into this level of the standard, over the winter months (December until end of February)?",
+                    template: "application",
+                    content: "application",
+                    url: "apply-for-sfi-levels-5",
+                    pageid: 31,
+                    back: "apply-for-sfi-levels-4",
                     next: "",
                     complete: "no"
                 }
