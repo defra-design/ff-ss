@@ -250,7 +250,7 @@
 
                             <div class="govuk-inset-text">
 
-                                <p>3 x land parcels were updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
+                                <p>3 land parcels were updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
                                 {% if data['resultsattached'] == "done" %}
                                 <p>SOM test results were added to 12 land parcels on <b>{% include "includes/today.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
                                 {% else %}
@@ -337,7 +337,7 @@
 
                             {% if data['applicationstatus'] == "started" %}
                             <div id="applications" class="govuk-inset-text">
-                                <h3 class="govuk-heading-s">Current application(s):</h3>
+                                <h3 class="govuk-heading-s">Current applications:</h3>
                                 <p><a href="apply-for-sfi">{{ data['prototypes'][pid]['scheme'] }}</a> &nbsp;&nbsp; {% include "includes/logic-application-status.html" %}
                                 </p>
                             </div>
