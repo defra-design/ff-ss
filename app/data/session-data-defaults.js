@@ -22,7 +22,7 @@ module.exports = {
     indexlink: "/index",
     devmode: "off",
     updated: "04-Aug-22",
-    maintitle: "Future Farming Single Service",
+    maintitle: "Future Farming",
     team: [
         {
             role: "Interaction design",
@@ -142,7 +142,7 @@ module.exports = {
                     complete: "yes"
                 },
                 {
-                    title: "Future Farming Single Service",
+                    title: "Future Farming",
                     template: "account",
                     content: "Sign in",
                     url: "start",
@@ -287,7 +287,7 @@ module.exports = {
                     content: "tasks",
                     url: "task",
                     pageid: 16,
-                    back: "actions",
+                    back: "tasks",
                     next: "",
                     complete: "no"
                 },
@@ -447,6 +447,15 @@ module.exports = {
                     url: "vet-visit-report",
                     pageid: 32,
                     back: "documents",
+                    next: "",
+                    complete: "no"
+                },
+                {
+                    title: "SOM test results uploaded",
+                    content: "application",
+                    url: "add-som-test-complete",
+                    pageid: 33,
+                    back: "add-som-test",
                     next: "",
                     complete: "no"
                 }

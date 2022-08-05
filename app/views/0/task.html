@@ -3,7 +3,7 @@
 {% block header %}
 {{ govukHeader({
   homepageUrl: "#",
-  serviceName: "Future Farming Single Service",
+  serviceName: "Future Farming",
   serviceUrl: "#",
   navigation: [
     {
@@ -205,16 +205,32 @@
 
     <div class="govuk-grid-column-full govuk-!-padding-top-4">
 
+        {% if data['resultsattached'] == "done" %}
+        <strong class="govuk-tag govuk-tag--green">
+            Completed
+        </strong>
+
+
+        {% else %}
         <strong class="govuk-tag govuk-tag--grey">
             Not started
         </strong>
+        {% endif %}
 
         <br /><br />
 
+
+        {% if data['resultsattached'] == "done" %}
+        <h2 class="govuk-heading-l">Test results succesfully added to the land parcels</h2>
+        {% else %}
         <h2 class="govuk-heading-l">You have 12 land parcels that need a new SOM test</h2>
+        {% endif %}
 
+        {% if data['resultsattached'] == "done" %}
+        <span class="govuk-caption-l">Completed: <b>{% include "includes/today.html" %}</b> </span>
+        {% else %}
         <span class="govuk-caption-l">Due date: <b>{% include "includes/nextFortnight.html" %}</b> </span>
-
+        {% endif %}
         <br />
         <span class="govuk-caption-l">Scheme: <b><a href="agreemeent-sfi-grassland.html">SFI - improved grassland soils standard</a></b> </span>
 
@@ -227,6 +243,8 @@
 
     </div>
 
+    {% if data['resultsattached'] == "done" %}
+    {% else %}
     <div class="govuk-grid-column-two-thirds">
 
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -455,9 +473,9 @@
         </div>
 
     </div>
+    {% endif %}
 
 
-</div>
 
 </div>
 
