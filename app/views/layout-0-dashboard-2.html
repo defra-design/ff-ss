@@ -199,11 +199,14 @@
                     <div class="govuk-inset-text inset-dashboard dashpanel">
                         <h3 class="govuk-heading-m">Tasks:</h3>
                         <ul class="govuk-list govuk-list--spaced">
+                            {% if data['resultsattached'] == "done" %}
+                            {% else %}
 
                             <li><span class="govuk-body-s">
                                     {% include "includes/nextFortnight.html" %} </span> <br />
                                 <span class="govuk-caption-m">Action</span> <a href="task">You have 12 land parcels that need a new SOM test</a>
                             </li>
+                            {% endif %}
                             {% if data['applicationstatus'] == "started" %}
                             <li><span class="govuk-body-s">
                                     {% include "includes/next40days.html" %} </span> <br />
@@ -248,14 +251,21 @@
                             <div class="govuk-inset-text">
 
                                 <p>3 x land parcels were updated <b> {% include "includes/lastMonth.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
+                                {% if data['resultsattached'] == "done" %}
+                                <p>SOM test results were added to 12 land parcels on <b>{% include "includes/today.html" %}</b> by <b>{{ data['firstname'] }} {{ data['secondname'] }}</b></p>
+                                {% else %}
+                                {% endif %}
                             </div>
 
                             <ul class="govuk-list govuk-list--spaced">
 
                                 <!--       <li><a href="#">View/edit your soil management plan</a> </li>
                                 <li><a href="#">View/edit any grazing rights you hold for common land</a> </li> -->
-                                <li><a href="add-som-test">Add a new SOM test result</a> </li>
 
+                                {% if data['resultsattached'] == "done" %}
+                                {% else %}
+                                <li><a href="add-som-test">Add a new SOM test result</a> </li>
+                                {% endif %}
 
                                 <li class="govuk-!-padding-top-4"><a href="land"><b>View or edit your land</b></a> </li>
                             </ul>

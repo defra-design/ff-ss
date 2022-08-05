@@ -67,7 +67,15 @@
                     Completed
                 </strong></li>
             <li><a href="task.html">Test soil organic matter</a>&nbsp;&nbsp;<span class="govuk-body-s">
-                    {% include "includes/nextFortnight.html" %}</span>&nbsp;&nbsp;</li>
+                    {% include "includes/nextFortnight.html" %}</span>&nbsp;&nbsp; {% if data['resultsattached'] == "done" %}
+                <strong class="govuk-tag govuk-tag--green">
+                    Completed
+                </strong>
+
+
+                {% else %}
+
+                {% endif %}</li>
             <li><a href="task-2.html">Minimise bare ground over winter</a> &nbsp;&nbsp;<span class="govuk-body-s">
                     01 Dec 2022</span>&nbsp;&nbsp;</li>
             <li><a href="task-3.html">Establish and maintain herbal leys</a> &nbsp;&nbsp;<span class="govuk-body-s">
