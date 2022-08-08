@@ -76,38 +76,34 @@
 
         <ul class="govuk-list govuk-list--spaced govuk-!-padding-bottom-8">
 
-            <li>Links to be updated when layout finalised</li>
-
-
-            <!--  <li><a href="#business">Business</a>
+            <li><a href="#land">Land</a>
                 <ul class="govuk-list">
-                    <li>&nbsp;- <a href="#land">Land</a>
+                    <li>&nbsp;- <a href="#your-land">Your land</a>
                     </li>
-                    <li>&nbsp;- <a href="#payments">Payments</a>
-                    </li>
-                    <li>&nbsp;- <a href="#agreements">Agreements</a>
-                    </li>
-                    <li>&nbsp;- <a href="#schemes">Schemes</a>
+                    <li>&nbsp;- <a href="#neighbouring-land">Neighbouring land</a>
                     </li>
 
                 </ul>
             </li>
 
-            <!--    <li><a href="#agreements">Agreements &amp; applications</a>
-            </li> 
 
-            <li><a href="#documents">Documents</a>
+            <li><a href="#grants-payments">Grants and payments</a>
                 <ul class="govuk-list">
-                    <li>&nbsp;- <a href="#files">Saved files</a>
+                    <li>&nbsp;- <a href="#agreements">Your agreements</a>
                     </li>
-                    <li>&nbsp;- <a href="#bookmarks">Bookmarks</a>
+                    <li>&nbsp;- <a href="#funding">Funding</a>
+                    </li>
+                    <li>&nbsp;- <a href="#payments">Payments</a>
                     </li>
                 </ul>
+            </li>
+
+            <li><a href="#documents">Documents and bookmarks</a>
             </li>
 
             <li><a href="#account">Account</a>
             </li>
--->
+
         </ul>
 
     </div>
@@ -252,7 +248,7 @@
                     <div class="col-container">
 
                         {% if data['prototypes'][pid]['land'] == "on" %}
-                        <div class="dashpanel panelbg">
+                        <div id="your-land" class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Your land</h3>
 
@@ -280,7 +276,7 @@
 
                         </div>
 
-                        <div class="dashpanel panelbg">
+                        <div id="neighbouring-land" class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Neighbouring land</h3>
 
@@ -303,7 +299,7 @@
 
                 </div>
 
-                <div id="business" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+                <div id="grants-payments" class="govuk-grid-column-full govuk-!-padding-top-8 govuk-!-padding-bottom-8">
 
                     <h3 class="govuk-heading-l">Grants and payments</h3>
 
@@ -359,7 +355,7 @@
 
                         </div>
 
-                        <div id="schemes" class="dashpanel panelbg">
+                        <div id="funding" class="dashpanel panelbg">
 
                             <h3 class="govuk-heading-m">Funding</h3>
 
