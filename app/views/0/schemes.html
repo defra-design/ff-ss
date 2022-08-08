@@ -333,8 +333,9 @@
                     <td class="govuk-table__cell">Eligible</td>
                     <td class="govuk-table__cell">
                         {% if data['applicationstatus'] == "started" %}
-
                         <a href="apply-for-sfi">Resume application</a>
+                        {% elif data['applicationstatus'] == "done" %}
+                        <a href="#">Application submitted</a>
                         {% else %}
                         <a href="apply-for-sfi" class="govuk-button">Apply</a>
                         {% endif %}

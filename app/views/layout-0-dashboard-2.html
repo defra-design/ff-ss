@@ -174,18 +174,27 @@
                                 <a href="land">Land update accepted</a></li>
                             <li> <span class="govuk-body-s">
                                     {% include "includes/last2Weeks.html" %} <br />
-                                </span><a href="vet-visit-report">Vet Visit report has been completed by [Vet name]</a></li>
-                            <!--    <li> <span class="govuk-body-s">
-                                    {% include "includes/lastWeek.html" %} -
-                                </span><a href="#">Local nature reserves: setting up and management guidance has been updated</a></li> -->
-                            <li> <span class="govuk-body-s">
-                                    {% include "includes/today.html" %} <br />
-                                </span><a href="apply-for-sfi">You are eligible for the {{ data['prototypes'][pid]['scheme'] }}</a></li>
+                                </span><a href="vet-visit-report">Vet Visit report has been completed by James Herriot</a></li>
+
                             <li>
+
                                 <span class="govuk-body-s">
-                                    {% include "includes/nextWeek.html" %} </span> <br />
-                                <a href="payment-statement-31773.html" target="_blank">SFI - improved grassland soils standard: Q1 payment to be made</a>
+                                    {% include "includes/today.html" %}</span> <br />
+                                <a href="payment-statement-31773.html" target="_blank">SFI - improved grassland soils standard: Q1 payment to be made on {% include "includes/nextWeek.html" %}</a>
                             </li>
+                            {% if data['applicationstatus'] == "done" %}
+                            <li> <span class="govuk-body-s">
+                                    {% include "includes/today.html" %} <strong class="govuk-tag govuk-tag--blue">
+                                        New
+                                    </strong><br />
+                                </span><a href="#">You application for {{ data['prototypes'][pid]['scheme'] }} has been received</a></li>
+                            <li>
+                                {% else %}
+                            <li> <span class="govuk-body-s">
+                                    {% include "includes/today.html" %}
+                                    <!-- colours: grey, green, turquoise, blue, purple, pink, red, orange, yellow --> <br />
+                                </span><a href="apply-for-sfi">You are eligible for the {{ data['prototypes'][pid]['scheme'] }}</a></li> {% endif %}
+
                             <li>&nbsp;</li>
                             <li><a href="#"><b>View all messages</b></a></li>
                         </ul>
@@ -204,7 +213,7 @@
 
                             <li><span class="govuk-body-s">
                                     {% include "includes/nextFortnight.html" %} </span> <br />
-                                <span class="govuk-caption-m">Action</span> <a href="task">You have 12 land parcels that need a new SOM test</a>
+                                <span class="govuk-caption-m">Action</span> <a href="task">You have 12 land parcels that need a new soil organic matter (SOM) test</a>
                             </li>
                             {% endif %}
                             {% if data['applicationstatus'] == "started" %}
@@ -246,7 +255,7 @@
                         {% if data['prototypes'][pid]['land'] == "on" %}
                         <div class="dashpanel panelbg">
 
-                            <h3 class="govuk-heading-m">Land</h3>
+                            <h3 class="govuk-heading-m">Your land</h3>
 
                             <div class="govuk-inset-text">
 
@@ -271,12 +280,23 @@
                             </ul>
 
                         </div>
+
+                        <div class="dashpanel panelbg">
+
+                            <h3 class="govuk-heading-m">Neighbouring land</h3>
+
+                            <ul class="govuk-list govuk-list--spaced">
+
+                                <li class="govuk-!-padding-top-4"><a href="#">View related farming activity in your local area</a> </li>
+                                <li><a href="">View collaboration opportunities</a></li>
+
+                            </ul>
+
+                        </div>
                         {% else %}
                         {% endif %}
 
-                        <div class="dashpanel">
 
-                        </div>
 
                     </div>
 
@@ -401,7 +421,7 @@
 
                             <div class="govuk-inset-text">
                                 <h3 class="govuk-heading-s">Next payment:</h3>
-                                <p>Your quarterly SFI grassland payment is <b>£279.65</b> and wil be paid on <b>{% include "includes/nextWeek.html" %}</b>.</p>
+                                <p>Your quarterly SFI grassland payment is <b>£92.50</b> and will be paid on <b>{% include "includes/nextWeek.html" %}</b>.</p>
                                 <p>Deductions have been made.</p>
                             </div>
 
@@ -453,7 +473,7 @@
                             <p>All correspondence sent to you will be saved here automatically.</p>
 
                             <div class="govuk-inset-text">
-                                <a href="vet-visit-report">Vet Visit report by [Vet name] </a> &nbsp;&nbsp;
+                                <a href="vet-visit-report">Vet Visit report by James Herriot </a> &nbsp;&nbsp;
                                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag">
                                     Added {% include "includes/last2Weeks.html" %}
                                 </strong>
@@ -480,7 +500,7 @@
                         <div id="bookmarks" class="dashpanel panelbg">
                             <h3 class="govuk-heading-m">Bookmarks</h3>
 
-                            <p>Here you can see all the content from GOV.UK that you have saved.</p>
+                            <p>Save GOV.UK pages and get notifications when they’re updated.</p>
 
 
                             <ul class="govuk-list govuk-list--spaced govuk-!-padding-top-4">

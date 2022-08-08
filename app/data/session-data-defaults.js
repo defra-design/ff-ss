@@ -21,7 +21,7 @@ module.exports = {
 
     indexlink: "/index",
     devmode: "off",
-    updated: "04-Aug-22",
+    updated: "08-Aug-22",
     maintitle: "Future Farming",
     team: [
         {
@@ -98,9 +98,9 @@ module.exports = {
         {
             id: 0,
             url: "/0",
-            status: "building",
+            status: "testing",
             desc: "TBC",
-            updated: "04-Aug-22",
+            updated: "08-Aug-22",
             start: "TBC",
             end: "TBC",
             participants: "TBC",
@@ -342,7 +342,7 @@ module.exports = {
                     complete: "no"
                 },
                 {
-                    title: "SFI improved arable and horticultural soils standard - guidance",
+                    title: "Guidance relevant to your land",
                     template: "application",
                     content: "application",
                     url: "apply-for-sfi-guidance",
