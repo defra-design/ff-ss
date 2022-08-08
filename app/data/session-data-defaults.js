@@ -458,6 +458,16 @@ module.exports = {
                     back: "add-som-test",
                     next: "",
                     complete: "no"
+                },
+                {
+                    title: "SFI arable and horticultural soils standard",
+                    template: "schemes",
+                    content: "agreement",
+                    url: "agreemeent-sfi-arable",
+                    pageid: 34,
+                    back: "schemes",
+                    next: "",
+                    complete: "no"
                 }
             ]
 }

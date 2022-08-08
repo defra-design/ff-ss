@@ -75,7 +75,15 @@
             <a href="dashboard" class="govuk-breadcrumbs__link">Dashboard</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-            <a href="{{ data['prototypes'][pid]['pages'][pageid]['back'] }}" class="govuk-breadcrumbs__link">All actions</a>
+            <form id="tasklink" action="/0/tasks" method="POST">
+                <input type="hidden" id="sms1b" name="notstarted" value="show">
+                <input type="hidden" id="sms1b" name="inprogress" value="show">
+                <input type="hidden" id="sms1b" name="completed" value="show">
+
+                <a onclick="document.getElementById('tasklink').submit(); return false;" class="govuk-breadcrumbs__link">All actions</a>
+
+            </form>
+
         </li>
 
     </ol>
@@ -400,7 +408,7 @@
                 <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
                     <p>Based on what you've told us about your land, we think the following guidance is relevant to you.</p>
                     <p>You can <a href="https://www.gov.uk/guidance/how-to-do-the-actions-in-the-arable-and-horticultural-soils-standard">read the full guidance on testing soil organic matter.</a></p>
-                <h3 class="govuk-heading-m govuk-!-padding-top-4" id="how-to-select-a-sample-area">How to select a sample area</h3>
+                    <h3 class="govuk-heading-m govuk-!-padding-top-4" id="how-to-select-a-sample-area">How to select a sample area</h3>
 
                     <div class="govuk-!-padding-top-4 govuk-!-padding-bottom-4">
                         <div class="panelbg" style="padding: 20px;">
@@ -421,21 +429,21 @@
 
                     <p>You should also avoid taking samples around features like manure heaps, pylons, gateways, headlands and around trees, as they can distort the soil analysis results.
 
-                    <p>To get a representative sample of the sample area you're testing, aim to take cores up to a depth of around 15cm (6 inches).</p>
+                        <p>To get a representative sample of the sample area you're testing, aim to take cores up to a depth of around 15cm (6 inches).</p>
 
 
-                    <h3 class="govuk-heading-m govuk-!-padding-top-8" id="how-to-test-the-soil-samples">How to test the soil samples</h3>
+                        <h3 class="govuk-heading-m govuk-!-padding-top-8" id="how-to-test-the-soil-samples">How to test the soil samples</h3>
 
-                    <p>If you have the right equipment and expertise, you can test the soil samples yourself. However, sending your soil samples to a commercial laboratory will usually give more accurate results. You can find a list of <a rel="external" href="https://ahdb.org.uk/knowledge-library/soil-and-forage-testing-companies" class="govuk-link">laboratories where you can send your soil samples</a> on the <abbr title="Agriculture and Horticulture Development Board">AHDB</abbr> website.</p>
+                        <p>If you have the right equipment and expertise, you can test the soil samples yourself. However, sending your soil samples to a commercial laboratory will usually give more accurate results. You can find a list of <a rel="external" href="https://ahdb.org.uk/knowledge-library/soil-and-forage-testing-companies" class="govuk-link">laboratories where you can send your soil samples</a> on the <abbr title="Agriculture and Horticulture Development Board">AHDB</abbr> website.</p>
 
-                    <p>Try to use the same laboratory and method of testing if you are repeating the tests over a number of years.&nbsp; Having a consistent approach will help you see how the soil organic matter is increasing or decreasing over time.</p>
+                        <p>Try to use the same laboratory and method of testing if you are repeating the tests over a number of years.&nbsp; Having a consistent approach will help you see how the soil organic matter is increasing or decreasing over time.</p>
 
-                    <p>If you use a laboratory, you can ask them to test organic matter content by using the:</p>
+                        <p>If you use a laboratory, you can ask them to test organic matter content by using the:</p>
 
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>loss on ignition test (as a minimum level of analysis)</li>
-                        <li>Dumas test, which uses dry combustion to burn the samples</li>
-                    </ul>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>loss on ignition test (as a minimum level of analysis)</li>
+                            <li>Dumas test, which uses dry combustion to burn the samples</li>
+                        </ul>
                 </div>
             </div>
 

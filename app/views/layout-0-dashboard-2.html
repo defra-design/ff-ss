@@ -231,8 +231,7 @@
                                     <input type="hidden" id="sms1b" name="notstarted" value="show">
                                     <input type="hidden" id="sms1b" name="inprogress" value="show">
                                     <input type="hidden" id="sms1b" name="completed" value="hide">
-                                    <input type="hidden" id="sms1b" name="eligible" value="show">
-                                    <input type="hidden" id="sms1b" name="ineligible" value="hide">
+
                                     <p><a href="" onclick="document.getElementById('tasklink').submit(); return false;"><b>View all tasks</b></a>
                                     </p>
                                 </form>
@@ -315,7 +314,15 @@
 
                             <ul class="govuk-list govuk-list--spaced">
                                 {% if data['prototypes'][pid]['sfi'] == "on" %}
-                                <li><a href="agreemeent-sfi-grassland">SFI - improved grassland soils standard</a>
+                                <li><a href="agreemeent-sfi-grassland">SFI improved grassland soils standard</a>
+                                </li>
+                                {% else %}
+                                {% endif %}
+                                {% if data['applicationstatus'] == "done" %}
+                                <li><a href="agreemeent-sfi-arable">{{ data['prototypes'][pid]['scheme'] }} <strong class="govuk-tag govuk-tag--blue">
+                                            Awaiting agreement
+                                        </strong>
+                                        <!-- colours: grey, green, turquoise, blue, purple, pink, red, orange, yellow --></a>
                                 </li>
                                 {% else %}
                                 {% endif %}
@@ -342,6 +349,7 @@
 
                                 <input type="hidden" id="sms1b" name="ineligible" value="hide">
                                 <input type="hidden" id="sms1b" name="eligible" value="hide">
+                                <input type="hidden" id="sms1b" name="applied" value="hide">
                                 <input type="hidden" id="sms1b" name="agreed" value="show">
                                 <input type="hidden" id="sms1b" name="ongoing" value="show">
                                 <input type="hidden" id="sms1b" name="oneoff" value="show">

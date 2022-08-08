@@ -2,7 +2,7 @@
 
 <!-- Update prototype id -->
 {% set pid = 0 %}
-{% set pageid = 10 %}
+{% set pageid = 34 %}
 
 <!-- Before content area -->
 {% block beforeContent %}
@@ -50,7 +50,9 @@
         <h1 class="govuk-heading-xl">
             SFI - improved grassland soils standard
         </h1>
-        <p><a href="#">View the agreement document (PDF)</a> </p>
+        <p>Application submitted: <b>{% include "includes/today.html" %}</b> </p>
+
+        <p>Decision expected: <b>{% include "includes/nextWeek.html" %}</b></p>
     </div>
 
 </div>
@@ -62,47 +64,33 @@
 
         <h2 class="govuk-heading-m">Agreement dates</h2>
 
-        <p>03 Apr 2022 to 02 Apr 2025</p>
+        <p>TBC</p>
 
         <h2 class="govuk-heading-m govuk-!-padding-top-8">Payment schedule</h2>
 
-        <p>4 x quarterly payments per year</p>
-
-        <p><a href="payments.html">View payments</a> </p>
+        <p>TBC</p>
 
         <h2 class="govuk-heading-m govuk-!-padding-top-8">Scheme actions</h2>
 
         <ol class="govuk-list govuk-list--number">
-            <li><a href="#">Complete a soil assessment and produce a soil management plan</a> &nbsp;&nbsp;<span class="govuk-body-s">
-                    03 Apr 2022</span>&nbsp;&nbsp; <strong class="govuk-tag govuk-tag--green">
-                    Completed
-                </strong></li>
-            <li><a href="task.html">Test soil organic matter</a>&nbsp;&nbsp;<span class="govuk-body-s">
-                    {% include "includes/nextFortnight.html" %}</span>&nbsp;&nbsp; {% if data['resultsattached'] == "done" %}
-                <strong class="govuk-tag govuk-tag--green">
-                    Completed
-                </strong>
-
-
-                {% else %}
-
-                {% endif %}</li>
-            <li><a href="task-2.html">Minimise bare ground over winter</a> &nbsp;&nbsp;<span class="govuk-body-s">
-                    01 Dec 2022</span>&nbsp;&nbsp;</li>
-            <li><a href="task-3.html">Establish and maintain herbal leys</a> &nbsp;&nbsp;<span class="govuk-body-s">
-                    01 Apr 2023</span>&nbsp;&nbsp;</li>
+            <li><a href="#">Complete a soil assessment and produce a soil management plan</a></li>
+            <li><a href="#">Test soil organic matter</a>
+            </li>
+            <li><a href="#">Add organic matter</a></li>
+            <li><a href="#">Winter cover</a></li>
         </ol>
 
 
         <h2 class="govuk-heading-m govuk-!-padding-top-8">Read scheme guidance</h2>
 
         <ol class="govuk-list govuk-list--number">
+
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 1" data-track-label="#how-the-improved-grassland-soils-standard-will-improve-the-environment" data-track-options="{&quot;dimension29&quot;:&quot;How the improved grassland soils standard will improve the environment&quot;}" href="#how-the-improved-grassland-soils-standard-will-improve-the-environment">How the improved grassland soils standard will improve the environment</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 1" data-track-label="#how-the-arable-and-horticultural-soils-standard-will-improve-the-environment" data-track-options="{&quot;dimension29&quot;:&quot;How the arable and horticultural soils standard will improve the environment&quot;}" href="#how-the-arable-and-horticultural-soils-standard-will-improve-the-environment">How the arable and horticultural soils standard will improve the environment</a>
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="#eligible-land-for-the-improved-grassland-soils-standard" data-track-options="{&quot;dimension29&quot;:&quot;Eligible land for the improved grassland soils standard&quot;}" href="#eligible-land-for-the-improved-grassland-soils-standard">Eligible land for the improved grassland soils standard</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="#eligible-land-for-the-arable-and-horticultural-soils-standard" data-track-options="{&quot;dimension29&quot;:&quot;Eligible land for the arable and horticultural soils standard&quot;}" href="#eligible-land-for-the-arable-and-horticultural-soils-standard">Eligible land for the arable and horticultural soils standard</a>
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
@@ -110,7 +98,7 @@
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 4" data-track-label="#how-the-improved-grassland-soils-standard-works" data-track-options="{&quot;dimension29&quot;:&quot;How the improved grassland soils standard works&quot;}" href="#how-the-improved-grassland-soils-standard-works">How the improved grassland soils standard works</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 4" data-track-label="#how-the-arable-and-horticultural-soils-standard-works" data-track-options="{&quot;dimension29&quot;:&quot;How the arable and horticultural soils standard works&quot;}" href="#how-the-arable-and-horticultural-soils-standard-works">How the arable and horticultural soils standard works</a>
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
@@ -130,11 +118,11 @@
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 9" data-track-label="#action-3-minimise-bare-ground-over-winter" data-track-options="{&quot;dimension29&quot;:&quot;Action 3: Minimise bare ground over winter&quot;}" href="#action-3-minimise-bare-ground-over-winter">Action 3: Minimise bare ground over winter</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 9" data-track-label="#action-3-add-organic-matter" data-track-options="{&quot;dimension29&quot;:&quot;Action 3: Add organic matter&quot;}" href="#action-3-add-organic-matter">Action 3: Add organic matter</a>
 
             </li>
             <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 10" data-track-label="#action-4-establish-and-maintain-herbal-leys" data-track-options="{&quot;dimension29&quot;:&quot;Action 4: Establish and maintain herbal leys&quot;}" href="#action-4-establish-and-maintain-herbal-leys">Action 4: Establish and maintain herbal leys</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" data-track-category="contentsClicked" data-track-action="content_item 10" data-track-label="#action-4-winter-cover" data-track-options="{&quot;dimension29&quot;:&quot;Action 4: Winter cover&quot;}" href="#action-4-winter-cover">Action 4: Winter cover</a>
 
             </li>
         </ol>
