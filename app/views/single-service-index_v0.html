@@ -1,0 +1,265 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Single Service hub",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{ data['maintitle'] }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <div class="govuk-!-padding-bottom-4 govuk-!-padding-top-4">
+            <h1 class="govuk-panel__title">
+                {{ data['maintitle'] }}
+            </h1>
+
+            <p class="govuk-body-s">
+                18 July 2022 - 12 Aug 2022
+            </p>
+            <p class="govuk-body-s">
+                Last updated: {{ data['updated'] }}
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class=" govuk-grid-row govuk-!-padding-top-8">
+
+    <div id="indexmenu" class="govuk-grid-column-one-quarter govuk-!-padding-bottom-8">
+
+        <!-- Menu -->
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="#vision">The vision</a></li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#team">The team</a></li>
+            <!--        <li><a href="#stakeholders">Stakeholders</a></li> -->
+            <li><a href="#plan">The plan</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#prototypes">Prototypes</a></li>
+        </ol>
+
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+        <!-- Vision -->
+        <div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="vision" class="govuk-heading-l">The vision</h2>
+
+                <div class="govuk-inset-text">
+                    Create a clear, consistent and reliable way for people to apply for funding that supports food production and protects our landscape for future generations and for staff to manage applications and support applicants.
+                </div>
+
+                <p> </p>
+
+
+
+            </div>
+
+        </div>
+
+        <!-- Plan -->
+        <div class="govuk-grid-row govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="plan" class="govuk-heading-l">Background</h2>
+
+                <!--  <h3 class="govuk-heading-m">Why we need this work</h3> -->
+
+                <p><b>In FFCP we all need to agree what we mean by single service. The output of this work will be critical in helping us achieve this agreement.</b></p>
+
+                <p>It is the role of the single service team to show how different delivery teams will align into one over the coming years. Currently we do not have a visual representation of the user experience for a single service. </p>
+
+                <p>The design spike is a way of rapidly starting this work and getting agreement from all stakeholders and leadership on the intended user experience for the single service.</p>
+
+                <p>This work will help provide an answer to the question <b>‘What does the single service look like to our users?’</b>.</p>
+
+            </div>
+
+        </div>
+
+        <!-- Team -->
+        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="team" class="govuk-heading-l">The team</h2>
+
+                <ul class="govuk-list">
+
+                    {% for member in data['team'] | sort(attribute="role") %}
+
+                    <li>
+                        {% if member.email %}
+                        <a href="mailto:{{ member.email }}" target="_blank">{{ member.name }}</a>
+                        <p class="govuk-body-s">
+                            {{ member.role }}
+                        </p>
+                        {% else %}
+                        {{ member.name }} <br />
+                        {{ member.role }}
+                        {% endif %}
+                    </li>
+
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- stakeholders 
+        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="stakeholders" class="govuk-heading-l">Stakeholders</h2>
+
+                <ul class="govuk-list govuk-list--spaced">
+                    {% for member in data['stakeholders'] | sort(attribute="name") %}
+
+                    <li>
+                        {{ member.name }} <br />
+                        <span class="govuk-body-s">
+                            {{ member.role }}
+                        </span>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+ 
+        <!-- Links -->
+        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="plan" class="govuk-heading-l">The plan</h2>
+
+                <p><b>In scope</b>:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Defra ID </li>
+                    <li>Eligibility </li>
+                    <li>Application </li>
+                    <li>Payment</li>
+                    <li>Agreements </li>
+                    <li>Land management </li>
+                    <li>Personal account ( manage my account) </li>
+                    <li>Backend office and process (internal interface)</li>
+                </ul>
+
+                <p>Our goal is to give a representative and realistic end to end journey. We will prioritize showing a full end to end experience over tackling difficult details. We will document where we see difficulties.
+                </p>
+
+                <p><b>Out of scope</b>:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Detail of scheme guidance (we will use representative content)</li>
+                    <li>Inspections and Enforcement</li>
+                </ul>
+
+                <br /><br /><br />
+
+                <p><b>Method</b></p>
+
+                <p>We’ll build a working prototype in code using the gov prototyping toolkit. We’ll regularly test this with users.
+                    We’ll work in short sprints of ideation, building and testing, then iterating
+                </p>
+
+                <br /><br /><br />
+
+                <p><b>Deliverables</b></p>
+
+                <ol class="govuk-list govuk-list--number">
+                    <li>Documented user needs, team’s assumptions, knowledge gaps, and problem statements.</li>
+                    <li>Understanding whether our plan for the single service maps well to user expectations</li>
+                    <li>2-3 show and tells to track progress. ( note: first show and tell SLT) </li>
+                    <li>Updated future state storyboards and service blueprint.</li>
+                    <li>Feed-in a single backlog for continuing this work (what we could / should do after this spike)</li>
+                    <li>Consider how any work emerging from this will link to the work in FFCP single service development work package (this is the technical delivery)</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+
+        <!-- Links -->
+        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="links" class="govuk-heading-l">Links</h2>
+
+                <ul class="govuk-list">
+                    {% for link in data['links'] %}
+
+                    <li>
+                        <a href="{{ link.url }}" target="_blank">{{ link.title }}</a><br />
+                    </li>
+
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Prototypes -->
+        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
+
+            <div class="govuk-grid-column-full">
+
+                <h2 id="prototypes" class="govuk-heading-l">Prototypes</h2>
+
+                {% for prototype in data['prototypes'] | sort(attribute="id") %}
+
+                <div class="govuk-grid-row govuk-!-padding-bottom-4 govuk-!-padding-top-4">
+
+                    <div class="govuk-grid-column-full">
+
+                        <h3 class="govuk-heading-m">v{{ prototype.id }}</h3>
+
+                        <p>
+                            {% include "includes/logic-prototype-status.html" %}
+                        </p>
+
+                        <p>{{ prototype.desc }}</p>
+
+                        <a href="{{ prototype.url }}" class="govuk-button">View prototype v{{ prototype.id }}</a>
+
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

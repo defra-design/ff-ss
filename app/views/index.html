@@ -13,253 +13,200 @@
 {% endblock %}
 
 {% block content %}
-{{ super() }}
+
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Future Farming and Countryside Programme</span>
+      <h1 class="govuk-heading-xl">
+        Prototype repository        
+      </h1>
+      <h2 class="govuk-heading-l">
+        Single Service prototypes        
+      </h2>
+      <p>Interaction design: <a href="mailto:gareth.thomas@defra.gov.uk">Gareth Thomas</a><br>Service design: <a href="mailto:lindsey.williams@defra.gov.uk">Lindsey Williams</a> / <a href="mailto:lindsey.williams@defra.gov.uk">Chris Dennis</a>
+      </p>
 
-    <div class="govuk-grid-column-full">
-        <div class="govuk-!-padding-bottom-4 govuk-!-padding-top-4">
-            <h1 class="govuk-panel__title">
-                {{ data['maintitle'] }}
-            </h1>
 
-            <p class="govuk-body-s">
-                18 July 2022 - 12 Aug 2022
-            </p>
-            <p class="govuk-body-s">
-                Last updated: {{ data['updated'] }}
-            </p>
-        </div>
-    </div>
+
+<!-- Single Service block start -->
+    <div style="background-color:#f3f2f1; border: solid 5px #1d70b8; padding: 24px 24px 16px;">
+        <strong class="govuk-tag" style="margin-bottom: 16px;">
+            complete
+          </strong>
+
+    <h3 class="govuk-heading-m">
+        Prototype v0        
+      </h3>
+
+      <p>
+        Concept prototype developed as part of the ‘Single Service’ design spike in August/September 2022.
+      </p>
+
+    <a href="single-service-index_v0" class="govuk-button" style="margin-bottom: 16px;">View details and prototype</a>
+
+<hr>
+    <p class="govuk-body-s">Got a question? Contact Gareth or Chris</p>
 
 </div>
+<!-- Single Service block end -->
 
-<div class=" govuk-grid-row govuk-!-padding-top-8">
+<hr style="margin: 32px 0 ;">
 
-    <div id="indexmenu" class="govuk-grid-column-one-quarter govuk-!-padding-bottom-8">
+<h2 class="govuk-heading-l">
+  Individual service team prototypes        
+</h2>
 
-        <!-- Menu -->
-        <ol class="govuk-list govuk-list--number">
-            <li><a href="#vision">The vision</a></li>
-            <li><a href="#background">Background</a></li>
-            <li><a href="#team">The team</a></li>
-            <!--        <li><a href="#stakeholders">Stakeholders</a></li> -->
-            <li><a href="#plan">The plan</a></li>
-            <li><a href="#links">Links</a></li>
-            <li><a href="#prototypes">Prototypes</a></li>
-        </ol>
 
-    </div>
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag govuk-tag--blue" style="margin-bottom: 16px;">
+        In development
+      </strong>
 
-    <div class="govuk-grid-column-three-quarters">
+<h3 class="govuk-heading-m">
+    Find Team        
+  </h3>
 
-        <!-- Vision -->
-        <div class="govuk-grid-row govuk-!-padding-bottom-8">
+  <p>
+    Various prototypes developed to help farmers find information in the awareness phase of the journey.
+  </p>
 
-            <div class="govuk-grid-column-full">
+<a href="https://ffc-advice.herokuapp.com" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View Find Team prototype</a>
 
-                <h2 id="vision" class="govuk-heading-l">The vision</h2>
+<p>Username: <strong>advice</strong> / Password: <strong>potato</strong></p>
 
-                <div class="govuk-inset-text">
-                    Create a clear, consistent and reliable way for people to apply for funding that supports food production and protects our landscape for future generations and for staff to manage applications and support applicants.
-                </div>
-
-                <p> </p>
-
-
-
-            </div>
-
-        </div>
-
-        <!-- Plan -->
-        <div class="govuk-grid-row govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="plan" class="govuk-heading-l">Background</h2>
-
-                <!--  <h3 class="govuk-heading-m">Why we need this work</h3> -->
-
-                <p><b>In FFCP we all need to agree what we mean by single service. The output of this work will be critical in helping us achieve this agreement.</b></p>
-
-                <p>It is the role of the single service team to show how different delivery teams will align into one over the coming years. Currently we do not have a visual representation of the user experience for a single service. </p>
-
-                <p>The design spike is a way of rapidly starting this work and getting agreement from all stakeholders and leadership on the intended user experience for the single service.</p>
-
-                <p>This work will help provide an answer to the question <b>‘What does the single service look like to our users?’</b>.</p>
-
-            </div>
-
-        </div>
-
-        <!-- Team -->
-        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="team" class="govuk-heading-l">The team</h2>
-
-                <ul class="govuk-list">
-
-                    {% for member in data['team'] | sort(attribute="role") %}
-
-                    <li>
-                        {% if member.email %}
-                        <a href="mailto:{{ member.email }}" target="_blank">{{ member.name }}</a>
-                        <p class="govuk-body-s">
-                            {{ member.role }}
-                        </p>
-                        {% else %}
-                        {{ member.name }} <br />
-                        {{ member.role }}
-                        {% endif %}
-                    </li>
-
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-        </div>
-
-        <!-- stakeholders 
-        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="stakeholders" class="govuk-heading-l">Stakeholders</h2>
-
-                <ul class="govuk-list govuk-list--spaced">
-                    {% for member in data['stakeholders'] | sort(attribute="name") %}
-
-                    <li>
-                        {{ member.name }} <br />
-                        <span class="govuk-body-s">
-                            {{ member.role }}
-                        </span>
-                    </li>
-
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-        </div>
- 
-        <!-- Links -->
-        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="plan" class="govuk-heading-l">The plan</h2>
-
-                <p><b>In scope</b>:</p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Defra ID </li>
-                    <li>Eligibility </li>
-                    <li>Application </li>
-                    <li>Payment</li>
-                    <li>Agreements </li>
-                    <li>Land management </li>
-                    <li>Personal account ( manage my account) </li>
-                    <li>Backend office and process (internal interface)</li>
-                </ul>
-
-                <p>Our goal is to give a representative and realistic end to end journey. We will prioritize showing a full end to end experience over tackling difficult details. We will document where we see difficulties.
-                </p>
-
-                <p><b>Out of scope</b>:</p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Detail of scheme guidance (we will use representative content)</li>
-                    <li>Inspections and Enforcement</li>
-                </ul>
-
-                <br /><br /><br />
-
-                <p><b>Method</b></p>
-
-                <p>We’ll build a working prototype in code using the gov prototyping toolkit. We’ll regularly test this with users.
-                    We’ll work in short sprints of ideation, building and testing, then iterating
-                </p>
-
-                <br /><br /><br />
-
-                <p><b>Deliverables</b></p>
-
-                <ol class="govuk-list govuk-list--number">
-                    <li>Documented user needs, team’s assumptions, knowledge gaps, and problem statements.</li>
-                    <li>Understanding whether our plan for the single service maps well to user expectations</li>
-                    <li>2-3 show and tells to track progress. ( note: first show and tell SLT) </li>
-                    <li>Updated future state storyboards and service blueprint.</li>
-                    <li>Feed-in a single backlog for continuing this work (what we could / should do after this spike)</li>
-                    <li>Consider how any work emerging from this will link to the work in FFCP single service development work package (this is the technical delivery)</li>
-
-                </ol>
-
-            </div>
-
-        </div>
-
-
-        <!-- Links -->
-        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="links" class="govuk-heading-l">Links</h2>
-
-                <ul class="govuk-list">
-                    {% for link in data['links'] %}
-
-                    <li>
-                        <a href="{{ link.url }}" target="_blank">{{ link.title }}</a><br />
-                    </li>
-
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-        </div>
-
-        <!-- Prototypes -->
-        <div class="govuk-grid-row govuk-!-padding-top-8 govuk-!-padding-bottom-8">
-
-            <div class="govuk-grid-column-full">
-
-                <h2 id="prototypes" class="govuk-heading-l">Prototypes</h2>
-
-                {% for prototype in data['prototypes'] | sort(attribute="id") %}
-
-                <div class="govuk-grid-row govuk-!-padding-bottom-4 govuk-!-padding-top-4">
-
-                    <div class="govuk-grid-column-full">
-
-                        <h3 class="govuk-heading-m">v{{ prototype.id }}</h3>
-
-                        <p>
-                            {% include "includes/logic-prototype-status.html" %}
-                        </p>
-
-                        <p>{{ prototype.desc }}</p>
-
-                        <a href="{{ prototype.url }}" class="govuk-button">View prototype v{{ prototype.id }}</a>
-
-
-                    </div>
-
-                </div>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-    </div>
+<hr>
+<p class="govuk-body-s">Interaction design contact: <a href="mailto:cassie.robinson@capgemini.com">Cassie Robinson</a></p>
 
 </div>
+<!-- Single Service block end -->
+
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag govuk-tag--blue" style="margin-bottom: 16px;">
+        In development
+      </strong>
+
+<h3 class="govuk-heading-m">
+    Making Payment Data Public (MPDP)        
+  </h3>
+
+  <p>
+    Prototypes developed in the awareness phase of the journey focussed around helping farmers find information.
+  </p>
+
+<a href="https://www.figma.com/proto/T1V1tWDJfOwbGGa3nng4rt/MPDP?node-id=2639%3A21458&scaling=min-zoom&page-id=1%3A2&starting-point-node-id=2639%3A21458&show-proto-sidebar=1" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View MVP v4 prototype</a>
+<br>
+<a href="https://www.figma.com/proto/T1V1tWDJfOwbGGa3nng4rt/MPDP?node-id=2639%3A21440&scaling=min-zoom&page-id=1%3A2&starting-point-node-id=2639%3A21440&show-proto-sidebar=1" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View Beta v10 prototype</a>
+
+<hr>
+<p class="govuk-body-s">Interaction design contact: <a href="mailto:mikael.metthey@defra.gov.uk">Mikael Metthey</a></p>
+
+</div>
+<!-- Single Service block end -->
+
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag" style="margin-bottom: 16px;">
+        Complete
+      </strong>
+
+<h3 class="govuk-heading-m">
+    Sustainable Farming Incentive (SFI) 2022        
+  </h3>
+
+  <p>
+    Prototype developed as part of the SFI 2022 work and built to reflect the screens in GOV.UK and the RPA systems.
+  </p>
+
+<a href="https://sfi-22.herokuapp.com/" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View SFI 2022 prototype</a>
+
+<p>Password: <strong>farming</strong></p>
+
+<hr>
+<p class="govuk-body-s">Interaction design contact: TBC<br>Service design contact: <a href="mailto:marcela.salcedo@kainos.com">Marcela Salcedo</a></p>
+
+</div>
+<!-- Single Service block end -->
+
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag" style="margin-bottom: 16px;">
+        Complete
+      </strong>
+
+<h3 class="govuk-heading-m">
+    Grants 2021/22        
+  </h3>
+
+  <p>
+    Prototypes developed to support the tactical farming grants introduced in 2021/22. Future grants work also captured here.
+  </p>
+
+<a href="https://grants-prototype2.herokuapp.com/" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View grants prototype</a>
+
+<p>Username: <strong>grants</strong> / Password: <strong>prototype</strong></p>
+
+<hr>
+<p class="govuk-body-s">Interaction design contact: <a href="mailto:robert.a.nagy@capgemini.com">Robert Nagy</a><br>Service design contact: <a href="mailto:gren.hamlyn@capgemini.com">James Edwards</a></p>
+
+</div>
+<!-- Single Service block end -->
+
+
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag govuk-tag--blue" style="margin-bottom: 16px;">
+        In development
+      </strong>
+
+<h3 class="govuk-heading-m">
+    Annual Health and Welfare Review (Vets Visits)        
+  </h3>
+
+  <p>
+    Service that allows farmers to apply and claim for funding to pay for health and welfare checks on selected types of animals.
+  </p>
+
+<a href="https://sfi-prototype.herokuapp.com/ahw" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View prototypes</a>
+
+<p>Username: <strong>sfi</strong> / Password: <strong>prototype</strong></p>
+
+<hr>
+<p class="govuk-body-s">Interaction design contact: TBC<br>Service design contact: <a href="mailto:james.edwards@environment-agency.gov.uk">James Edwards</a></p>
+
+</div>
+<!-- Single Service block end -->
+
+
+<!-- Single Service block start -->
+<div style="background-color:#f3f2f1; padding: 24px 24px 16px; margin-bottom: 32px;">
+    <strong class="govuk-tag govuk-tag--blue" style="margin-bottom: 16px;">
+        In development
+      </strong>
+
+<h3 class="govuk-heading-m">
+    Local Nature Recovery (LNR)        
+  </h3>
+
+  <p>
+    Prototype developed for the LNR scheme in their Alpha phase. Further work underway in their post-Alpha phase.
+  </p>
+
+<a href="https://xd.adobe.com/view/e5d2ed85-665d-4455-53c1-0e26905607e2-93e3/" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View LNR Alpha prototype</a>
+<p>Password: <strong>LNRAlpha1</strong></p>
+
+<a href="https://sandbox-choice.herokuapp.com/" class="govuk-button" style="margin-bottom: 16px;" target="_blank">View Sandbox prototype</a>
+<p>Password: <strong>nature</strong></p>
+
+<hr>
+<p class="govuk-body-s">Interaction design contact: <a href="mailto:virginie.tan@capgemini.com">Virginie Tan</a><br>Service design contact: <a href="mailto:ed.wallace@capgemini.com">Ed Wallace</a></p>
+
+</div>
+<!-- Single Service block end -->
+
+
+    </div>
+  </div>
 
 {% endblock %}
